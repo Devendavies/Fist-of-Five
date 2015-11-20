@@ -12,6 +12,7 @@ var SurveySchema = new mongoose.Schema({
   updated_at:  Date
 });
 
+// Set creation or update date
 SurveySchema.pre('save', (next) => {
   let now = new Date();
   // Only set updated_at if there is created_at
