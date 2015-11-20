@@ -19,6 +19,7 @@ router.route('/')
       .post((req, res, next) => {
         let newUser = new User({
           name: name, // TENTATIVE VALUES>>>PLUG IN FORM ENTRIES
+          password: password,
           img_url: image,
           birthday: birthday,
           bio: bio
