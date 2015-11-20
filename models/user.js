@@ -1,3 +1,4 @@
+'use strict'
 // Initialize from npm tools
 var mongoose   = require('mongoose')
 var SurveySchema = require('./surveys.js').schema;

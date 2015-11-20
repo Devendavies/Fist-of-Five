@@ -1,3 +1,4 @@
+'use strict'
 // Declare server Globals
 let express = require('express');
 let app = express();

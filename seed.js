@@ -1,3 +1,4 @@
+'use strict'
 var User = require('./models/users.js'),
   Survey = require('./models/surveys.js'),
   mongoose = require('mongoose');

@@ -1,3 +1,4 @@
+'use strict'
 // Define mongoose obj
 var mongoose = require('mongoose');
 
