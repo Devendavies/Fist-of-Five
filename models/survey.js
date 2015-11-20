@@ -22,5 +22,5 @@ SurveySchema.pre('save', (next) => {
 });
 
 // Store Survey Schema and export to controller
-var Painting = mongoose.model('Painting', PaintingSchema);
-module.exports = Painting;
+var Survey = mongoose.model('Survey', SurveySchema);
+module.exports = Survey;
