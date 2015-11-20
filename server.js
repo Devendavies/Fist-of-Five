@@ -1,13 +1,13 @@
 // Declare server Globals
-var express = require('express');
-var app = express();
+let express = require('express');
+let app = express();
 
-var bodyParser = require('body-parser');
-var logger = require('morgan');
-var mongoose = require('mongoose');
+let bodyParser = require('body-parser');
+let logger = require('morgan');
+let mongoose = require('mongoose');
 
 // Set Server Listener
-var server = app.listen(3000, function () {
+let server = app.listen(3000, function () {
   console.log("This app is running on Port 3000")
 })
 
@@ -25,9 +25,8 @@ mongoose.connect('mongodb://localhost/museumrApp', function (err) {
   }
 });
 
-
-//Controllers
-
-//Root
-app.get("/", function (req, res) {
-});
+// Controller Routes
+let userRoutes = require('./controllers/users_controller');
+let surveyRoutes = require('./controllers/survey_controller');
+app.use('/users', userRoutes);
+app.use('/surveys', surveyRoutes);
