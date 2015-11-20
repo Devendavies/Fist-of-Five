@@ -5,6 +5,7 @@ var SurveySchema = require('./surveys.js').schema;
 // Define the User objects
 var UserSchema = new mongoose.Schema({
   name:     String,
+  password: String,
   img_url:  String,
   birthday: Date,
   bio:      String,
