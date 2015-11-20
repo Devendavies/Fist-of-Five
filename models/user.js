@@ -9,6 +9,7 @@ var UserSchema = new mongoose.Schema({
   img_url:  String,
   birthday: Date,
   bio:      String,
+  owns:     [Number]
   surveys: [{ // Users can 'own' posts
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Survey'

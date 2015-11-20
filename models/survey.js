@@ -7,6 +7,7 @@ var SurveySchema = new mongoose.Schema({
   description: String,
   votes:       Number,
   voters:      [Number],
+  owner_id:    Number,
   created_at:  Date,
   updated_at:  Date
 });
