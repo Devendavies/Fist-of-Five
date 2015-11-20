@@ -36,16 +36,13 @@ router.route('/')
   router.route('/:id')
         .get((req, res, next) => {
           User.findById(req.params.id).exec(function(err, user){
+            if(err) throw err;
             res.send(user);
           });
         });
 //update user...finds user by his id...sets new infoby req.body
         .put((req, res, next) => {
-          User.findOneAndUpdate({
-            _id: req.params.id
-          }, {
-            $set: req.body
-          }, function(err, user){
+          User.findOneAndUpdate({_id: req.params.id}, { $set: req.body}, function(err, user){
             res.send(user);
           });
         });
