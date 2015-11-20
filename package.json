@@ -1,0 +1,28 @@
+{
+  "name": "fist_of_five_app",
+  "version": "1.0.0",
+  "description": "Group Project week 8",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Devendavies/Fist-of-Five.git"
+  },
+  "author": "Deven Davies, Jeffrey Macks, Benjamin Duell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Devendavies/Fist-of-Five/issues"
+  },
+  "homepage": "https://github.com/Devendavies/Fist-of-Five#readme",
+  "dependencies": {
+    "bcrypt": "^0.8.5",
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "express-jwt": "^3.3.0",
+    "jsonwebtoken": "^5.4.1",
+    "mongoose": "^4.2.6",
+    "morgan": "^1.6.1"
+  }
+}
