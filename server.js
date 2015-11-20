@@ -17,7 +17,7 @@ app.use(bodyParser());
 app.use(logger('dev'))
 
 // Connect to mongo database
-mongoose.connect('mongodb://localhost/museumrApp', function (err) {
+mongoose.connect('mongodb://localhost/fistOfFive', function (err) {
   if(err){
     console.log('connection error', err);
   } else {
