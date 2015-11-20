@@ -7,10 +7,12 @@ var SurveySchema = new mongoose.Schema({
   description: String,
   votes:       Number,
   voters:      [Number],
+  owner_id:    Number,
   created_at:  Date,
   updated_at:  Date
 });
 
+// Set creation or update date
 SurveySchema.pre('save', (next) => {
   let now = new Date();
   // Only set updated_at if there is created_at
