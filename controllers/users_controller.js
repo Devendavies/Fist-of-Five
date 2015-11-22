@@ -18,11 +18,11 @@ router.route('/')
 // /user post route...allows reation of new users, takes in a number of values tbd by the html form
       .post((req, res, next) => {
         let newUser = new User({
-          name: name, // TENTATIVE VALUES>>>PLUG IN FORM ENTRIES
-          password: password,
-          img_url: image,
-          birthday: birthday,
-          bio: bio
+          name: $('.#new-name').val(),
+          password: $('.#new-password').val(),
+          img_url: $('.#new-image_Url').val(),
+          birthday: $('.#new-birthday').val(),
+          bio: $('.#new-password').val()
         });
 //saves the new users info and creates the user
         newUser.save((err) => {
