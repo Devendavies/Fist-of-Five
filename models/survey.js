@@ -1,6 +1,7 @@
 'use strict'
 // Define mongoose obj
 var mongoose = require('mongoose');
+var UserSchema = require('./user.js').schema;
 
 // Define Survey Object
 var SurveySchema = new mongoose.Schema({

@@ -39,13 +39,13 @@ router.route('/')
             if(err) throw err;
             res.send(user);
           });
-        });
+        })
 //update user...finds user by his id...sets new infoby req.body
         .put((req, res, next) => {
           User.findOneAndUpdate({_id: req.params.id}, { $set: req.body}, function(err, user){
             res.send(user);
           });
-        });
+        })
 //this route deletes and user in user table based on his id.
         .delete((req, res, next) => {
           User.findOneAndRemove({_id: req.params.id}, function(err){

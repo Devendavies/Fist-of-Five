@@ -28,6 +28,6 @@ mongoose.connect('mongodb://localhost/fistOfFive', function (err) {
 
 // Controller Routes
 let userRoutes = require('./controllers/users_controller');
-let surveyRoutes = require('./controllers/survey_controller');
+let surveyRoutes = require('./controllers/surveys_controller');
 app.use('/users', userRoutes);
 app.use('/surveys', surveyRoutes);
