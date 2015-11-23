@@ -17,9 +17,9 @@
           <li role="create" id="new-post"><a href="/create"> Make A New Survey </a></li>
           <li id="myInfo"><a href="/:id"> Profile </a></li>
           if (token){
-            <li  id="login"><a href="/login">  Login </a></li>
+            <li id="login"><a href="/login">  Login </a></li>
           else (){
-            <li  id="logout"><a href="/logout">  Logout </a></li>
+            <li id="logout"><a href="/logout">  Logout </a></li>
           }
         </ul>
       </div>
@@ -31,9 +31,9 @@
           <form class="login" action="" method="post">
             <!-- unsure of appropriate class and action.. -->
             <ul>
-              <li>Name:     <input id="login-name" type="text" name="Name" value=""></li>
-              <li>Password: <input id="login-password" type="text" value=""></li>
-              <li>Confirm:  <input id="login-confirm" type="text" value=""></li>
+              <li>Name:     <input type="text" id="login-name"     placeholder="Name"></li>
+              <li>Password: <input type="text" id="login-password" placeholder="password"></li>
+              <li>Confirm:  <input type="text" id="login-confirm"  placeholder="confirm"></li><br>
               <li><button id="login-button">Login</button></li>
             </ul>
           </form>
@@ -41,13 +41,13 @@
 
         <!-- Create New User -->
         <div class="signUpBox">
-          <form class="login" action="" method="post">
+          <form class="signup" action="" method="post">
             <ul>
-              <li>Name:        <input id="new-name" type="text" value="">       </li>
-              <li>Password:    <input id="new-password" type="text" value="">   </li>
-              <li>Profile Url: <input id="new-profile-pic" type="text" value=""></li>
-              <li>Birthday:    <input id="new-birthday" type="date" value="">   </li>
-              <li>About Me:    <input id="new-bio" type="text" value="">        </li>
+              <li>Name:        <input id="new-name" type="text" placeholder="Name">            </li>
+              <li>Password:    <input id="new-password" type="text" placeholder="Password">    </li>
+              <li>Profile Url: <input id="new-profile-pic" type="text" placeholder="Picture">  </li>
+              <li>Birthday:    <input id="new-birthday" type="date" placeholder="Birthday">    </li>
+              <li>About Me:    <textarea id="new-bio" type="text" placeholder="Bio"></textarea></li><br>
               <li><button id="signup-button">Signup!</button></li>
             </ul>
           </form>
