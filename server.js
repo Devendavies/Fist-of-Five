@@ -20,7 +20,7 @@ var io      = require('socket.io')(server);
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}))
-app.use(logger('dev'))
+app.use(logger('dev'));
 
 // Connect to mongo database
 mongoose.connect('mongodb://localhost/fistOfFive', function (err) {
