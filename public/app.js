@@ -2,9 +2,26 @@
 
 $(function(){
   console.log('javascript LOADED!');
-
+  // let socket = io();
   let renderSurveyTemplate = Handlebars.compile($('template#surveys').html());
   let renderUserTemplate = Handlebars.compile($('template#userpage').html());
+  let signup_loginTemplate = Handlebars.compile($('template#signup-login').html());
+
+
+  let renderForm = function(){
+    let formTemplate = signup_loginTemplate();
+    $('.results').empty().append(formTemplate);
+  };
+
+  let getForms = function(){
+    $.ajax({
+      url: '/',
+      method: 'GET',
+    }).done(renderForm)
+  };
+
+
+  window.onload = getForms();
 
 
   let renderSurveys = function(data){
