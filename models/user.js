@@ -1,8 +1,8 @@
 'use strict'
 // Initialize from npm tools
-var mongoose   = require('mongoose')
+const mongoose   = require('mongoose')
 var SurveySchema = require('./survey.js').schema;
-var bcrypt = require ('bcrypt')
+const bcrypt = require ('bcrypt');
 // Define the User objects
 var UserSchema = new mongoose.Schema({
   name:     String,
@@ -19,13 +19,14 @@ var UserSchema = new mongoose.Schema({
 //when password is to be saved, first salt the password (if it has not already been salted)
 UserSchema.pre('save', function (next){
   let user = this;
+
   if (!user.ismodified('password')) return next();
   bcrypt.genSalt(7, (err, salt) =>{
-    if (err) return next (err)
+    if (err) return next (err);
     bcrypt.hash(user.password, salt, err, hash) => {
       if (err) return next (err);
       user.password=hash;
-      next()
+      next();
     })
   })
 })
