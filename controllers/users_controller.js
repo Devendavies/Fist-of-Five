@@ -1,10 +1,11 @@
 'use strict';
-//route requirements
+//route requirements and secret
 let express = require('express');
 let mongoose = require('mongoose');
 let router = express.Router();
 let User = require('../models/user.js');
 let Survey = require('../models/survey.js')
+
 //the following are the routes for '/user'
 router.route('/')
 //get and find a user by tbd parameters ( will be inside {} in User.find)
@@ -57,3 +58,6 @@ router.route('/')
 
 
 module.exports = router;
+
+
+// token generation code.

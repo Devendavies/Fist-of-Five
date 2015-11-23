@@ -30,8 +30,6 @@ mongoose.connect('mongodb://localhost/fistOfFive', function (err) {
   }
 });
 let db = mongoose.connection
-// make a secret.
-const secret = "keepitsecretkeepitsafe";
 
 // Controller Routes
 let userRoutes = require('./controllers/users_controller');
