@@ -25,9 +25,9 @@ app.use(logger('dev'));
 // Connect to mongo database
 mongoose.connect('mongodb://localhost/fistOfFive', function (err) {
   if(err){
-    console.log('connection error', err);
+    console.log('Connection error', err);
   } else {
-    console.log('connection successful');
+    console.log('Connection successful');
   }
 });
 let db = mongoose.connection
