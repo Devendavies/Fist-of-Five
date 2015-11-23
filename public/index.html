@@ -9,7 +9,120 @@
 
   </head>
   <body>
+    <h1>TEST</h1>
 
+      // Possible Survey Page Nav Bar
+      <div class="nav-bar">
+        <ul class= "nav-list">
+          <li role="create" id="new-post"><a href="/create"> Make A New Survey </a></li>
+          <li id="myInfo"><a href="/:id"> Profile </a></li>
+          if (token){
+            <li id="login"><a href="/login">  Login </a></li>
+          else (){
+            <li id="logout"><a href="/logout">  Logout </a></li>
+          }
+        </ul>
+      </div>
+
+      <!-- SIGN-IN OR LOGIN TEMPLATE -->
+      <template id="signup-login">
+        <!--  div for login-->
+        <div class="loginBox">
+          <form class="login" action="" method="post">
+            <!-- unsure of appropriate class and action.. -->
+            <ul>
+              <li>Name:     <input type="text" id="login-name"     placeholder="Name"></li>
+              <li>Password: <input type="text" id="login-password" placeholder="password"></li>
+              <li>Confirm:  <input type="text" id="login-confirm"  placeholder="confirm"></li><br>
+              <li><button id="login-button">Login</button></li>
+            </ul>
+          </form>
+        </div>
+
+        <!-- Create New User -->
+        <div class="signUpBox">
+          <form class="signup" action="" method="post">
+            <ul>
+              <li>Name:        <input id="new-name" type="text" placeholder="Name">            </li>
+              <li>Password:    <input id="new-password" type="text" placeholder="Password">    </li>
+              <li>Profile Url: <input id="new-profile-pic" type="text" placeholder="Picture">  </li>
+              <li>Birthday:    <input id="new-birthday" type="date" placeholder="Birthday">    </li>
+              <li>About Me:    <textarea id="new-bio" type="text" placeholder="Bio"></textarea></li><br>
+              <li><button id="signup-button">Signup!</button></li>
+            </ul>
+          </form>
+        </div>
+      </template>
+
+      <!-- SURVEYS TEMPLATE -->
+      <template id="surveys">
+
+        <!--  Chat Starter Code -->
+        <!-- <div class="ChatWindow">   </div>
+        <div class="usersLoggedIn"></div>
+        <div class="chatHistory">  </div>
+
+        <form class="chatActions" action="" method="post">
+        Name:<div class="message">
+        <label for="Chat-Message"> type your message here </label>
+        <input type="text" name="message" value="">
+        </div>
+        <div class="">
+        Send
+        <input type="button" name="sendMessage" value="Send">
+        </div>
+        </form>
+        </div>
+
+        <div class="footer">
+
+        </div> -->
+
+        <!-- < for each survey in surveys > -->
+
+        {{#each}}
+        <div class="surveys">
+          <h3> {{title}} </h3>
+          <h4> {{description}} </h4>
+          <ul>
+            <li class= "zero" ><button id="fist">         <img ref=""></img></button></li>
+            <li class= "one"  ><button id="one-finger">   <img ref=""></img></button></li>
+            <li class= "two"  ><button id="two-fingers">  <img ref=""></img></button></li>
+            <li class= "three"><button id="three-fingers"><img ref=""></img></button></li>
+            <li class= "four" ><button id="four-fingers"> <img ref=""></img></button></li>
+            <li class= "five" ><button id="five-fingers"> <img ref=""></img></button></li>
+          </ul>
+        </div>
+
+        <div class="counts">
+          <ul>
+            <li><p> 0 = {{../models/survey.voters[0].length}} </p></li>
+            <li><p> 1 = {{../models/survey.voters[1].length}} </p></li>
+            <li><p> 2 = {{../models/survey.voters[2].length}} </p></li>
+            <li><p> 3 = {{../models/survey.voters[3].length}} </p></li>
+            <li><p> 4 = {{../models/survey.voters[4].length}} </p></li>
+            <li><p> 5 = {{../models/survey.voters[5].length}} </p></li>
+          </ul>
+        </div>
+      </template>
+
+      <!-- USER PAGE TEMPLATE -->
+      <template id="userpage">
+
+      </template>
+
+
+    <script> // THIS IS PURELY FOR SERVER FUNCTIONALITY TESTING
+      request.onload = () =>{
+        if (request.status >= 200 && request.status < 400) {
+          // Success!
+          var resp = request.responseText;
+        } else {
+          // We reached our target server, but it returned an error
+        }
+      };
+
+    </script>
   </body>
 </html>
 
