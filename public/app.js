@@ -45,6 +45,26 @@ $(function(){
     }).done(renderUsers)
   };
 
+  let createUser = function(){
+    let name = $('#new-name').val();
+    let password = $('#new-password').val();
+    let img_url = $('#new-profile-pic').val();
+    let birthday = $('#new-birthday').val();
+    let bio = $('#new-bio').val();
+    let userData = {
+      name: name,
+      password: password,
+      img_url: img_url,
+      birthday: birthday,
+      bio: bio
+    }
+    $.ajax({
+      url: '/users',
+      method: 'POST',
+      data: userData,
+    }).done(getUsers)
+  };
+
   $('.show_users').on('click', getUsers);
   $('.show_surveys').on('click', renderSurveys);
 
