@@ -16,14 +16,11 @@
 
       // Possible Survey Page Nav Bar
       <div class="nav-bar">
-        <ul class= "nav-list">
-          <li role="create" id="new-post"><a href="/create"> Make A New Survey </a></li>
+        <ul class= "nav-list" list-style="none">
+          <li id="login"><a href="/login" ng-show="!token">  Login  </a></li>
+          <li id="logout"><a href="/logout" ng-show="token"> Logout </a></li>
           <li id="myInfo"><a href="/:id"> Profile </a></li>
-          if (token){
-            <li id="login"><a href="/login">  Login </a></li>
-          else (){
-            <li id="logout"><a href="/logout">  Logout </a></li>
-          }
+          <li role="create" id="new-post"><a href="/create"> New Survey </a></li>
         </ul>
       </div>
 
@@ -38,7 +35,7 @@
         <div class="loginBox">
           <form class="login" action="/authorization" method="post">
             <!-- unsure of appropriate class and action.. -->
-            <ul>
+            <ul class="welcomeBack">
               <li>Name:     <input type="text" id="login-name"     placeholder="Name"></li>
               <li>Password: <input type="text" id="login-password" placeholder="password"></li>
               <li>Confirm:  <input type="text" id="login-confirm"  placeholder="confirm"></li><br>
@@ -48,12 +45,12 @@
         </div>
 
         <!-- Create New User -->
-        <div class="signUpBox">
+        <div class="signupBox">
           <form class="signup" action="/users" method="post">
-            <ul>
+            <ul class="wiseChoice">
               <li>Name:        <input id="new-name" type="text" placeholder="Name">            </li>
               <li>Password:    <input id="new-password" type="text" placeholder="Password">    </li>
-              <li>Profile Url: <input id="new-profile-pic" type="text" placeholder="Picture">  </li>
+              <li>Profile Picture Url: <input id="new-profile-pic" type="text" placeholder="Picture">  </li>
               <li>Birthday:    <input id="new-birthday" type="date" placeholder="Birthday">    </li>
               <li>About Me:    <textarea id="new-bio" type="text" placeholder="Bio"></textarea></li><br>
               <li><button id="signup-button">Signup!</button></li>
@@ -129,16 +126,7 @@
       <div class="results"></div>
 
 
-    <script> // THIS IS PURELY FOR SERVER FUNCTIONALITY TESTING
-      request.onload = () =>{
-        if (request.status >= 200 && request.status < 400) {
-          // Success!
-          var resp = request.responseText;
-        } else {
-          // We reached our target server, but it returned an error
-        }
-      };
-
+    <script>
     </script>
   </body>
 </html>
