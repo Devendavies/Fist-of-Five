@@ -8,64 +8,32 @@
   </head>
   <body>
     <!--  div for login-->
-<div class="loginBox">
-  <form class="login" action="" method="post">
+<form class="login" action="" method="post">
     <!-- unsure of appropriate class and action.. -->
-Name:<div class="">
   <label for="user-name"> Name: </label>
   <input type="text" name="Name" value="">
-</div>
-<div class="">
   <label for="user-password"> password: </label>
   <input type="text" name="loginPassword" value="">
-</div>
-<div class="">
   Enter
   <input type="button" name="loginEnter" value="Enter">
-</div>
-  </form>
-</div>
+</form>
 
-
-
-<div class="signUpBox">
 <!-- unsure of "action" -->
 <form id="New-User" action="/create-user" method="post">
 
-  <div>
     <label for="new-user-name"> Name: </label>
     <input type="text" id="new-name" name="name" value="">
-  </div>
-  bio:      String,
-  <div>
     <label for="new-user-img_URL"> Image URL: </label>
     <input type="text" id="new-img_Url" name="img_URL" value="">
-  </div>
-  <div>
     <label for="new-user-birthday"> Birthday: </label>
     <input type="text" id="new-birthday" name="birthday" value="">
-  </div>
-
-  <div>
     <label for="new-user-bio"> Personal Biography: </label>
-    <input type="text" id="new-bio" name="bio" value="">
-  </div>
-
-  <div>
+    <input type="text" id="new-bio" name="bio" value=""
     <label for="new-user-password"> password: </label>
     <input type="text" id="new-password" name="password" value="">
-  </div>
-
-  <div>
-    <label for="new-user-password_confirm"> New Movie Plot: </label>
+    <label for="new-user-password_confirm"> Confirm Password: </label>
     <input type="text" id="new-password_confirm" name="password_confirm" value="">
-  </div>
-
-  <div>
-    <button type="submit" id="create" name="loginbutton"> Create Movie </button>
-  </div>
+    <button type="submit" id="create" name="NewAccountbutton"> Create Your account</button>
 </form>
-</div>
-
   </body>
 </html>
