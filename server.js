@@ -11,6 +11,7 @@ let mongoose = require('mongoose');
 let server = app.listen(3000, function () {
   console.log("This app is running on Port 3000")
 })
+var io      = require('socket.io')(server);
 
 // Use these npm tools
 app.use(express.static('public'))
