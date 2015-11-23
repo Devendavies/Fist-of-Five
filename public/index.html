@@ -80,7 +80,7 @@
 
         <!-- < for each survey in surveys > -->
 
-        {{#each}}
+        {{#each survey}}
         <div class="surveys">
           <h3> {{title}} </h3>
           <h4> {{description}} </h4>
@@ -104,6 +104,8 @@
             <li><p> 5 = {{../models/survey.voters[5].length}} </p></li>
           </ul>
         </div>
+        {{/each}}
+
       </template>
 
       <!-- USER PAGE TEMPLATE -->
