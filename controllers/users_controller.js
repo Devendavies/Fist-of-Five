@@ -5,7 +5,7 @@ let mongoose = require('mongoose');
 let router = express.Router();
 let User = require('../models/user.js');
 let Survey = require('../models/survey.js')
-
+const secret = "keepitsecretkeepitsafe";
 //the following are the routes for '/user'
 router.route('/')
 //get and find a user by tbd parameters ( will be inside {} in User.find)
