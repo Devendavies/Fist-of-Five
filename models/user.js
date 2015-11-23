@@ -2,7 +2,7 @@
 // Initialize from npm tools
 const mongoose   = require('mongoose')
 var SurveySchema = require('./survey.js').schema;
-const bcrypt = require ('bcrypt');
+const bcrypt = require('bcrypt');
 // Define the User objects
 var UserSchema = new mongoose.Schema({
   name:     String,
@@ -22,8 +22,8 @@ UserSchema.pre('save', function (next){
 
   if (!user.ismodified('password')) return next();
   bcrypt.genSalt(7, (err, salt) =>{
-    if (err) return next (err);
-    bcrypt.hash(user.password, salt, err, hash) => {
+    if (err) return next(err);
+    bcrypt.hash(user.password, salt, (err, hash) => {
       if (err) return next (err);
       user.password=hash;
       next();
