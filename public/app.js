@@ -37,7 +37,8 @@ $(function(){
     $('.results').empty().append(userTemplate);
   };
 
-  let getUsers = function(){
+  let getUsers = function(e){
+    e.preventDefault();
     $.ajax({
       url: '/users',
       method: 'GET',
@@ -45,6 +46,32 @@ $(function(){
     }).done(renderUsers)
   };
 
+  let createUser = function(e){
+    console.log('button clicked');
+    e.preventDefault();
+    let name = $('#new_name').val();
+    console.log('in here! HELP');
+    // console.log($('#new_name').val());
+    let password = $('#new_password').val();
+    let img_url = $('#new_profile_pic').val();
+    let birthday = $('#new_birthday').val();
+    let bio = $('#new_bio').val();
+    let userData = {
+      name: name,
+      password: password,
+      img_url: img_url,
+      birthday: birthday,
+      bio: bio
+    }
+    console.log(userData);
+    $.ajax({
+      url: '/users',
+      method: 'POST',
+      data: userData,
+    }).done(renderUsers)
+  };
+
   $('.show_users').on('click', getUsers);
   $('.show_surveys').on('click', renderSurveys);
+  $('#signup_button').on('click', createUser());
 });

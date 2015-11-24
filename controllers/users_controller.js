@@ -17,21 +17,17 @@ router.route('/')
         });
       })
 // /user post route...allows reation of new users, takes in a number of values tbd by the html form
-      .post((req, res, next) => {
-        let newUser = new User({
-          name: $('.#new-name').val(),
-          password: $('.#new-password').val(),
-          img_url: $('.#new-image_Url').val(),
-          birthday: $('.#new-birthday').val(),
-          bio: $('.#new-password').val()
+      .post(function(req, res){
+        console.log(req.body);
+        var user = new User(req.body.user);
+        user.save(function(err){
+          if(err){
+            console.log(err);
+          } else {
+            console.log(user);
+            res.send(user);
+          }
         });
-//saves the new users info and creates the user
-        newUser.save((err) => {
-          if (err) throw err;
-          console.log('NEW USER SAVED');
-          alert('Welcome' + name + 'your info has been saved');
-        });
-        res.send('new user saved');
       });
 //single-user specific routes including update and delete
   router.route('/:id')
