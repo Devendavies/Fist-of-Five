@@ -30,6 +30,7 @@ UserSchema.pre('save', function (next){
     })
   })
 })
+
 var User = mongoose.model('User', UserSchema)
 // create functionality to compare the first password to the salted password, return bool.
 User.authenticate = function(password, callback) {
