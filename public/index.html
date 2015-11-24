@@ -12,13 +12,14 @@
 
   </head>
   <body>
-    <h1>TEST</h1>
+    <h1> Fist Of Five </h1>
 
-      // Possible Survey Page Nav Bar
       <div class="nav-bar">
         <ul class= "nav-list" list-style="none">
+          <!-- Shows login or logout if token -->
           <li id="login"><a href="/login" ng-show="!token">  Login  </a></li>
           <li id="logout"><a href="/logout" ng-show="token"> Logout </a></li>
+
           <li id="myInfo"><a href="/:id"> Profile </a></li>
           <li role="create" id="new-post"><a href="/create"> New Survey </a></li>
         </ul>
@@ -62,6 +63,39 @@
       <!-- SURVEYS TEMPLATE -->
       <template id="surveys">
 
+        <!-- < for each survey in surveys > -->
+        {{#each survey}}
+
+        <div class="surveys">
+          <h3> {{this.title}} </h3>
+          <h4> {{this.description}} </h4>
+          <div class="fof-nums">
+            <ul>
+              <li><button id="fist">         <img src=""></img></button></li>
+              <li><button id="one-finger">   <img src=""></img></button></li>
+              <li><button id="two-fingers">  <img src=""></img></button></li>
+              <li><button id="three-fingers"><img src=""></img></button></li>
+              <li><button id="four-fingers"> <img src=""></img></button></li>
+              <li><button id="five-fingers"> <img src=""></img></button></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="counts">
+          <h3> Current Tally </h3>
+          <ul>
+            <!-- wrong syntax (shouldnt reff model, should ref called object) -->
+            <li><p> 0 = {{this.votes[0].value()}} </p></li>
+            <li><p> 1 = {{this.votes[1].value()}} </p></li>
+            <li><p> 2 = {{this.votes[2].value()}} </p></li>
+            <li><p> 3 = {{this.votes[3].value()}} </p></li>
+            <li><p> 4 = {{this.votes[4].value()}} </p></li>
+            <li><p> 5 = {{this.votes[5].value()}} </p></li>
+          </ul>
+        </div>
+
+        {{/each}}
+
         <!--  Chat Starter Code -->
         <!-- <div class="ChatWindow">   </div>
         <div class="usersLoggedIn"></div>
@@ -82,34 +116,6 @@
         <div class="footer">
 
         </div> -->
-
-        <!-- < for each survey in surveys > -->
-
-        {{#each survey}}
-        <div class="surveys">
-          <h3> {{this.title}} </h3>
-          <h4> {{this.description}} </h4>
-          <ul>
-            <li class= "zero" ><button id="fist">         <img ref=""></img></button></li>
-            <li class= "one"  ><button id="one-finger">   <img ref=""></img></button></li>
-            <li class= "two"  ><button id="two-fingers">  <img ref=""></img></button></li>
-            <li class= "three"><button id="three-fingers"><img ref=""></img></button></li>
-            <li class= "four" ><button id="four-fingers"> <img ref=""></img></button></li>
-            <li class= "five" ><button id="five-fingers"> <img ref=""></img></button></li>
-          </ul>
-        </div>
-
-        <div class="counts">
-          <ul>
-            <li><p> 0 = {{../models/survey.voters[0].length}} </p></li>
-            <li><p> 1 = {{../models/survey.voters[1].length}} </p></li>
-            <li><p> 2 = {{../models/survey.voters[2].length}} </p></li>
-            <li><p> 3 = {{../models/survey.voters[3].length}} </p></li>
-            <li><p> 4 = {{../models/survey.voters[4].length}} </p></li>
-            <li><p> 5 = {{../models/survey.voters[5].length}} </p></li>
-          </ul>
-        </div>
-        {{/each}}
 
       </template>
 

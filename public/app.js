@@ -7,7 +7,6 @@ $(function(){
   let renderUserTemplate = Handlebars.compile($('template#userpage').html());
   let signup_loginTemplate = Handlebars.compile($('template#signup-login').html());
 
-
   let renderForm = function(){
     let formTemplate = signup_loginTemplate();
     $('.results').empty().append(formTemplate);
@@ -20,9 +19,7 @@ $(function(){
     }).done(renderForm)
   };
 
-
   window.onload = getForms();
-
 
   let renderSurveys = function(data){
     console.log(data);
@@ -47,7 +44,6 @@ $(function(){
   };
 
   let createUser = function(e){
-    console.log('button clicked');
     e.preventDefault();
     alert('User Created! Welcome...')
     let userData = $(this).closest('form').serialize();
@@ -59,19 +55,10 @@ $(function(){
     //   data: userData,
     //
     // }).done();
+
   };
 
   $('.show_users').on('click', getUsers);
   $('.show_surveys').on('click', renderSurveys);
   $('#signup_button').on('click', createUser);
-
-
-
-
-
-
-
-
-
->>>>>>> dce4f56a94af7ecf9bd121806354ece513683a28
-});
+//  $('#signup_button').on('click', createUser(req.body));

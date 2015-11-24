@@ -13,7 +13,7 @@ var UserSchema = new mongoose.Schema({
   surveys: [{ // Users can 'own' posts
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Survey'
-    }]
+  }]
 });
 
 //when password is to be saved, first salt the password (if it has not already been salted)

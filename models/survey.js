@@ -7,7 +7,7 @@ var UserSchema = require('./user.js').schema;
 var SurveySchema = new mongoose.Schema({
   topic:       String,
   description: String,
-  votes:       Number,
+  votes:       [Number],
   voters:      [Number],
   owner_id:    Number,
   created_at:  Date,
