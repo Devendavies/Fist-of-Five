@@ -59,6 +59,7 @@ $(function(){
   };
 
   $('.show_users').on('click', getUsers);
-  $('.show_surveys').on('click', renderSurveys);
   $('#signup_button').on('click', createUser);
 //  $('#signup_button').on('click', createUser(req.body));
+  $('.show_surveys').on('click', renderSurveys);
+  $('#create-survey').on('click', createSurvey);
