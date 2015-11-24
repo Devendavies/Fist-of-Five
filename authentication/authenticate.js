@@ -1,6 +1,6 @@
 'use strict';
 const jwt = require('jsonwebtoken');
-const User = require('../models/user');
+let User = require('../models/user');
 const secret = "keepitsecretkeepitsafe";
 function auth(req, res){
 
@@ -10,17 +10,18 @@ function auth(req, res){
   if (userParams.email == undefined || userParams.password == undefined)
   return res.status(401).send({message: "Please provide correct credentials"});
 
-  User.findOne({ email: userParams.email }, function(err, user) {
-    console.log(user);
+  // User.findOne({ email: userParams.email }, function(err, user) {
+    User.findOne({ email: userParams.email }, function(data) {
+    console.log(data.name);
     /* mongoose method with similar name! */
-    user.authenticate(userParams.password, function (err, isMatch) {
-      if (err) throw err;
-      /* let's check if the password match then generate a token! */
-      if (isMatch) {
-        return res.status(200).send({message: "Valid Credentials", token: jwt.sign(user, secret)});
-      } else {
-        return res.status(401).send({message: "Invalid Credentials"});
-      }
+    // User.authenticate(userParams.password, function (err, isMatch) {
+    //   if (err) throw err;
+    //   /* let's check if the password match then generate a token! */
+    //   if (isMatch) {
+    //     return res.status(200).send({message: "Valid Credentials", token: jwt.sign(user, secret)});
+    //   } else {
+    //     return res.status(401).send({message: "Invalid Credentials"});
+    //   }
     });
   });
 }

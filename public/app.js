@@ -16,12 +16,12 @@ $(function(){
   let getForms = function(){
     $.ajax({
       url: '/',
-      method: 'GET',
+      type: 'GET',
     }).done(renderForm)
   };
 
+  getForms();
 
-  window.onload = getForms();
 
 
   let renderSurveys = function(data){
@@ -50,20 +50,46 @@ $(function(){
     console.log('button clicked');
     e.preventDefault();
     alert('User Created! Welcome...')
-    let userData = $(this).closest('form').serialize();
+    // let userData = $(this).closest('form').serialize();
+    var userData = {
+      name : $('#new_name').val(),
+      password : $('#new_password').val(),
+      img_url: $('#new_profile_pic').val(),
+      birthday: $('#new_birthday').val(),
+      bio: $('#new_bio').val()
+
+    }
     //TRYING TO USE THIS AJAX TO REPLACE REDIRECT IN CONTROLLER
     //AJAX DOES NOT WORK
-    // $.ajax({
-    //   url: '/users',
-    //   method: 'POST',
-    //   data: userData,
-    //
-    // }).done();
+    $.ajax({
+      url: '/users',
+      method: 'POST',
+      data: userData,
+
+    }).done();
+  };
+
+
+  let authorize = function(e){
+    console.log('login button clicked');
+    e.preventDefault();
+    var userData = {
+      name: $('#login-name').val(),
+      password: $('#login-password').val()
+    };
+    $.ajax({
+      url: '/authorization',
+      type: 'POST',
+      data: userData
+    }).done();
   };
 
   $('.show_users').on('click', getUsers);
   $('.show_surveys').on('click', renderSurveys);
-  $('#signup_button').on('click', createUser);
+  // $('#signup_button').on('click', createUser);
+  $('body').on('click', '#signup_button', createUser);
+  // $('#login-button').on('click', authorize);
+  $('body').on('click', '#login-button', authorize);
 
 
 
