@@ -18,11 +18,13 @@ router.route('/')
       })
 // /user post route...allows reation of new users, takes in a number of values tbd by the html form
       .post(function(req, res){
-        var user = new User(req.body);
+        console.log(req.body);
+        var user = new User(req.body.user);
         user.save(function(err){
           if(err){
             console.log(err);
           } else {
+            console.log(user);
             res.send(user);
           }
         });
