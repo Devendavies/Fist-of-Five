@@ -49,29 +49,29 @@ $(function(){
   let createUser = function(e){
     console.log('button clicked');
     e.preventDefault();
-    let name = $('#new_name').val();
-    console.log('in here! HELP');
-    // console.log($('#new_name').val());
-    let password = $('#new_password').val();
-    let img_url = $('#new_profile_pic').val();
-    let birthday = $('#new_birthday').val();
-    let bio = $('#new_bio').val();
-    let userData = {
-      name: name,
-      password: password,
-      img_url: img_url,
-      birthday: birthday,
-      bio: bio
-    }
-    console.log(userData);
-    $.ajax({
-      url: '/users',
-      method: 'POST',
-      data: userData,
-    }).done(renderUsers)
+    alert('User Created! Welcome...')
+    let userData = $(this).closest('form').serialize();
+    //TRYING TO USE THIS AJAX TO REPLACE REDIRECT IN CONTROLLER
+    //AJAX DOES NOT WORK
+    // $.ajax({
+    //   url: '/users',
+    //   method: 'POST',
+    //   data: userData,
+    //
+    // }).done();
   };
 
   $('.show_users').on('click', getUsers);
   $('.show_surveys').on('click', renderSurveys);
-  $('#signup_button').on('click', createUser());
+  $('#signup_button').on('click', createUser);
+
+
+
+
+
+
+
+
+
+>>>>>>> dce4f56a94af7ecf9bd121806354ece513683a28
 });
