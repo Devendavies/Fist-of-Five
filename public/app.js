@@ -45,18 +45,35 @@ $(function(){
 
   let createUser = function(e){
     e.preventDefault();
-    alert('User Created! Welcome...')
-    let userData = $(this).closest('form').serialize();
-    //TRYING TO USE THIS AJAX TO REPLACE REDIRECT IN CONTROLLER
-    //AJAX DOES NOT WORK
-    // $.ajax({
-    //   url: '/users',
-    //   method: 'POST',
-    //   data: userData,
-    //
-    // }).done();
+     let name = $('#new_name').val();
+     console.log($('#new_name').val()); // Test
+     let password = $('#new_password').val();
+     let img_url = $('#new_profile_pic').val();
+     let birthday = $('#new_birthday').val();
+     let bio = $('#new_bio').val();
+     let userData = {
+       name: name,
+       password: password,
+       img_url: img_url,
+       birthday: birthday,
+       bio: bio
+     }
+     console.log(userData);
+     $.ajax({
+       url: '/users',
+       method: 'POST',
+       data: userData,
+     }).done(renderUsers)
+   };
 
-  };
+   let createSurvey = function(e){
+     e.preventDefault();
+     let topic = $('#new_topic').val();
+     console.log($('#new_topic').val()); // Test
+     let description = $('#new_description').val();
+     // Set by token id (YIKES)
+     // let owner_id = findByToken;
+   }
 
   $('.show_users').on('click', getUsers);
   $('#signup_button').on('click', createUser);

@@ -29,6 +29,20 @@ router.route('/')
           bio:      req.body.bio
         });
 
+        // OR
+        //         .post(function(req, res){
+        //   console.log(req.body);
+        //   var user = new User(req.body.user);
+        //   user.save(function(err){
+        //     if(err){
+        //       console.log(err);
+        //     } else {
+        //       console.log(user);
+        //       res.send(user);
+        //     }
+        //   });
+        // });
+
         user.save(function(err){
           if(err){
             console.log(err);
@@ -65,8 +79,6 @@ router.route('/')
           });
         });
 
-
 module.exports = router;
-
 
 // token generation code.
