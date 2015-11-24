@@ -47,8 +47,8 @@ $(function(){
   };
 
   let createUser = function(e){
-    console.log('button clicked');
     e.preventDefault();
+    console.log('button clicked');
     let name = $('#new_name').val();
     console.log('in here! HELP');
     // console.log($('#new_name').val());
@@ -73,5 +73,5 @@ $(function(){
 
   $('.show_users').on('click', getUsers);
   $('.show_surveys').on('click', renderSurveys);
-  $('#signup_button').on('click', createUser());
+  $('#signup_button').on('click', createUser(req.body));
 });

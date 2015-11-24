@@ -5,7 +5,7 @@
 
 .nav-bar li {
   display: inline;
-  padding: 0 7% 0 7%;
+  padding: 0 90px 0 90px;
 }
 
 input {
@@ -19,6 +19,7 @@ input {
   list-style: none;
   float: left;
   height: 400px;
+  width: 45%;
   background-color: rgba(0, 255, 0, 0.3);
 }
 
@@ -27,5 +28,6 @@ input {
   list-style: none;
   float: right;
   height: 400px;
+  width: 45%;
   background-color: rgba(255, 0, 0, 0.2);
 }
