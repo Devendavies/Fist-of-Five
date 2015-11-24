@@ -18,14 +18,27 @@ router.route('/')
       })
 // /user post route...allows reation of new users, takes in a number of values tbd by the html form
       .post(function(req, res){
-        console.log(req.body);
-        var user = new User(req.body.user);
+        console.log(req.body.name);
+        console.log(req.body.password);
+
+        var user = new User({
+          name:     req.body.name,
+          password: req.body.password,
+          img_url:  req.body.img_url,
+          birthday: req.body.birthday,
+          bio:      req.body.bio
+        });
+
         user.save(function(err){
           if(err){
             console.log(err);
           } else {
             console.log(user);
-            res.send(user);
+            // res.status(200).json({
+            //   successs: true,
+            //   message: 'User was successsfully created'
+            // });
+            res.status(200).redirect('/');
           }
         });
       });
