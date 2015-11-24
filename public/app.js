@@ -47,13 +47,4 @@ $(function(){
 
   $('.show_users').on('click', getUsers);
   $('.show_surveys').on('click', renderSurveys);
-
-
-
-
-
-
-
-
-
 });
