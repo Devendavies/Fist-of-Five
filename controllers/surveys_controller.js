@@ -3,8 +3,8 @@
 let express  = require('express');
 let mongoose = require('mongoose');
 let router   = express.Router();
-let User     = ('../models/user.js');
-let Survey   = ('../models/survey.js');
+let User     = require('../models/user.js');
+let Survey   = require('../models/survey.js');
 const expressJwt = require('express-jwt');
 
 router.route('/')
@@ -27,7 +27,7 @@ router.route('/')
 // Create a new survey...owner_id yet to be determined how it will be passed in
   .post(function(req, res){
     console.log(req.body);
-
+    console.log(Survey);
     var newSurvey = new Survey({
       topic: req.body.topic,
       description: req.body.description
@@ -42,7 +42,6 @@ router.route('/')
       } else {
       console.log('NEW SURVEY SAVED');
       console.log(newSurvey);
-      alert('you did it! the survey is real');
       res.status(200);
       }
     });

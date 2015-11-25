@@ -31,5 +31,5 @@ var SurveySchema = new mongoose.Schema({
 // });
 
 // Store Survey Schema and export to controller
-var Survey = mongoose.model('Survey', SurveySchema);
-module.exports = Survey;
+// var Survey = mongoose.model('Survey', SurveySchema);
+module.exports = mongoose.model('Survey', SurveySchema);
