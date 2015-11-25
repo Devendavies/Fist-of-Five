@@ -16,7 +16,7 @@ router.route('/')
         console.log('this is req.body', userParams.password)
 
         if(userParams.name == undefined || userParams.password == undefined)
-        return res.status(401).send({message: 'Incorrect Name or Password, Please Try Again'});
+          res.status(401).send({message: 'Incorrect Name or Password, Please Try Again'});
 
         User.findOne({ name: userParams.name }, function(err, user){
           if(err) throw err;
