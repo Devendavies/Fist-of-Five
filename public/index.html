@@ -70,10 +70,10 @@ socket.on('chat message', function(msg){
         {{#each survey}}
 
         <div class="surveys">
-          <h3> {{this.title}} </h3>
+          <h3> {{this.topic}} </h3>
           <h4> {{this.description}} </h4>
           <div class="fof-nums">
-            <ul>
+            <ul class="fist-list">
               <li><button id="fist">         <img src=""></img></button></li>
               <li><button id="one-finger">   <img src=""></img></button></li>
               <li><button id="two-fingers">  <img src=""></img></button></li>
@@ -85,7 +85,7 @@ socket.on('chat message', function(msg){
         </div>
 
         <div class="counts">
-          
+
         </div>
 
         {{/each}}
@@ -127,7 +127,7 @@ socket.on('chat message', function(msg){
 <!-- Chat Starter Code -->
 <div class="ChatWindow">   </div>
 <div class="usersLoggedIn"></div>
-<div class="chatHistory">  </div>
+<div class="chatHistory"> Chat History </div>
 
 <form class="chatActions" action="" method="post">
 Name:<div class="message">
