@@ -32,22 +32,16 @@
 
       <!-- SIGN-IN OR LOGIN TEMPLATE -->
       <template id="signup-login">
-        <!--  div for login-->
         <div class="loginBox">
-          <!-- <form class="login" action="/authorization" method="post"> -->
-            <!-- unsure of appropriate class and action.. -->
             <ul class="welcomeBack">
               <li>Name:     <input type="text" id="login-name"     placeholder="Name"></li>
               <li>Password: <input type="text" id="login-password" placeholder="password"></li>
-
               <li><button id="login-button">Login</button></li>
             </ul>
-          <!-- </form> -->
         </div>
 
         <!-- Create New User -->
         <div class="signupBox">
-          <!-- <form class="signup" action="/users" method="post"> -->
             <ul class="wiseChoice">
               <li>Name:        <input id="new_name" name="name" type="text" placeholder="Name">            </li>
               <li>Password:    <input id="new_password" name="password" type="text" placeholder="Password">    </li>
@@ -56,14 +50,12 @@
               <li>About Me:    <textarea id="new_bio" name="bio" type="text" placeholder="Bio"></textarea></li><br>
               <li><button id="signup_button">Signup!</button></li>
             </ul>
-          <!-- </form> -->
         </div>
       </template>
 
       <!-- SURVEYS TEMPLATE -->
       <template id="surveys">
 
-        <!-- < for each survey in surveys > -->
         {{#each survey}}
 
         <div class="surveys">
@@ -128,9 +120,18 @@
         {{/each}}
       </template>
 
+      <!-- New Survey Post -->
+      <template id="newSurveyTemplate">
+        <div class="newPostContainer">
+          <ul>
+            <li> Topic:    <input id="new_topic" type="text" placeholder="What we talkin bout?">  </li>
+            <li> Question: <input id="new_description" type="text" placeholder="Tell me more..."> </li>
+            <li><button id="create_survey">Post</button></li>
+          </ul>
+        </div>
+      </template>
 
       <div class="results"></div>
-
 
     <script>
     </script>

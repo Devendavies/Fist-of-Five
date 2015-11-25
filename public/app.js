@@ -48,15 +48,13 @@ $(function(){
     alert('User Created! Welcome...')
     // let userData = $(this).closest('form').serialize();
     var userData = {
-      name : $('#new_name').val(),
+      name :     $('#new_name').val(),
       password : $('#new_password').val(),
-      img_url: $('#new_profile_pic').val(),
-      birthday: $('#new_birthday').val(),
-      bio: $('#new_bio').val()
+      img_url:   $('#new_profile_pic').val(),
+      birthday:  $('#new_birthday').val(),
+      bio:       $('#new_bio').val()
     }
-    //TRYING TO USE THIS AJAX TO REPLACE REDIRECT IN CONTROLLER
-    //AJAX DOES NOT WORK
-
+    console.log(userData);
     $.ajax({
       url: '/users',
       method: 'POST',
@@ -78,6 +76,15 @@ $(function(){
       data: userData
     }).done();
   };
+
+  let createSurvey = function(e){
+    e.preventDefault();
+    let topic = $('#new_topic').val();
+    console.log($('#new_topic').val()); // Test
+    let description = $('#new_description').val();
+    // Set by token id (YIKES)
+    // let owner_id = findByToken;
+  }
 
   $('.show_users').on('click', getUsers);
   $('.show_surveys').on('click', renderSurveys);
