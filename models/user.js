@@ -30,14 +30,16 @@ UserSchema.pre('save', function (next){
     })
   })
 })
-
-var User = mongoose.model('User', UserSchema)
 // create functionality to compare the first password to the salted password, return bool.
-User.authenticate = function(password, callback) {
+
+UserSchema.methods.authenticate = function(password, callback) {
+  console.log(password); // entered
+  console.log(this.password); // actual
   bcrypt.compare(password, this.password, function (err, isMatch) {
     callback(null, isMatch);
   });
 };
+var User = mongoose.model('User', UserSchema)
 
 // Store model in var and export to the corresponding controller
 module.exports = User;

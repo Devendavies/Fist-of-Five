@@ -22,7 +22,7 @@ router.route('/')
       console.log(surveys);
       res.send(surveys);
     });
-  });
+  })
 
 // Create a new survey...owner_id yet to be determined how it will be passed in
   .post((req, res, next) => {
@@ -37,7 +37,7 @@ router.route('/')
       alert('you did it! the survey is real');
     });
     res.send(newSurvey);
-  });
+  })
 
 //routes using specific surveys
   router.route('/:id')
@@ -47,7 +47,7 @@ router.route('/')
       if(err) throw err;
     res.send(survey);
     });
-  });
+  })
 
 //find and update a survey based on its id param
   .put((req, res, next) => {
@@ -55,7 +55,7 @@ router.route('/')
       if(err) throw err;
       res.send(survey);
     });
-  });
+  })
 
 //find and delete a survey based on its id param
   .delete((req, res, next) => {
@@ -64,15 +64,15 @@ router.route('/')
       alert('survey deleted');
       res.send('survey deleted');
     });
-  });
+  })
 
 // Update a survey with a new vote
-  .vote((req, res, next) => {
-    Survey.findOneAndUpdate({_id: req.body.id}, {$set: req.body}, function(err, survey){
-      if(err) throw err;
-      db.surveys.update({'survey._id':req.body.votes[].value()}, {$inc:{"votes.$.zeroes"}})
-      res.send(survey);
-    });
-  });
+  // .vote((req, res, next) => {
+  //   Survey.findOneAndUpdate({_id: req.body.id}, {$set: req.body}, function(err, survey){
+  //     if(err) throw err;
+  //     db.surveys.update({'survey._id':req.body.votes[].value()}, {$inc:{"votes.$.zeroes"}})
+  //     res.send(survey);
+  //   });
+  // })
 
 module.exports = router;

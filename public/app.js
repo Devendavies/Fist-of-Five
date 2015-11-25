@@ -74,7 +74,9 @@ $(function(){
       url: '/authorization',
       type: 'POST',
       data: userData
-    }).done();
+    }).done(function(user){
+      console.log(user.token);
+    });
   };
 
   let createSurvey = function(e){
@@ -90,3 +92,4 @@ $(function(){
   $('.show_surveys').on('click', renderSurveys);
   $('body').on('click', '#signup_button', createUser);
   $('body').on('click', '#login-button', authorize);
+});
