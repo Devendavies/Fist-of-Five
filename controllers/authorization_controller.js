@@ -14,12 +14,16 @@ router.route('/')
       .post(function(req, res){
         var userParams = req.body;
         console.log('this is req.body', userParams.password)
+
         if(userParams.name == undefined || userParams.password == undefined)
         return res.status(401).send({message: 'Incorrect Name or Password, Please Try Again'});
 
         User.findOne({ name: userParams.name }, function(err, user){
+          if(err) throw err;
           console.log(user)
-         user.authenticate(userParams.password, function(err, isMatch){
+          if (!user){
+            console.log ('whatre you trying to pull')
+          } else {user.authenticate(userParams.password, function(err, isMatch){
            console.log("success");
             if(isMatch){
               console.log("success");
@@ -28,6 +32,7 @@ router.route('/')
               return res.status(401).send({message: 'Incorrect Name or Password, PLease Try Again'});
             };
           });
+        };
         });
       });
 
