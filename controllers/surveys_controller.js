@@ -37,7 +37,7 @@ router.route('/')
       alert('you did it! the survey is real');
     });
     res.send(newSurvey);
-  });
+  })
 
 //routes using specific surveys
   router.route('/:id')
@@ -67,12 +67,12 @@ router.route('/')
   })
 
 // Update a survey with a new vote
-  .vote((req, res, next) => {
-    Survey.findOneAndUpdate({_id: req.body.id}, {$set: req.body}, function(err, survey){
-      if(err) throw err;
-      db.surveys.update({'survey._id':req.body.votes[].value()}, {$inc:{"votes.$.zeroes"}})
-      res.send(survey);
-    });
-  });
+  // .vote((req, res, next) => {
+  //   Survey.findOneAndUpdate({_id: req.body.id}, {$set: req.body}, function(err, survey){
+  //     if(err) throw err;
+  //     db.surveys.update({'survey._id':req.body.votes[].value()}, {$inc:{"votes.$.zeroes"}})
+  //     res.send(survey);
+  //   });
+  // })
 
 module.exports = router;

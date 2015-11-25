@@ -16,7 +16,7 @@ router.route('/')
         console.log('this is req.body', userParams.password)
 
         if(userParams.name == undefined || userParams.password == undefined)
-        return res.status(401).send({message: 'Incorrect Name or Password, Please Try Again'});
+          res.status(401).send({message: 'Incorrect Name or Password, Please Try Again'});
 
         User.findOne({ name: userParams.name }, function(err, user){
           if(err) throw err;
@@ -27,13 +27,13 @@ router.route('/')
            console.log("success");
             if(isMatch){
               console.log("success");
-              return res.status(200).send({message: 'Success! Welcome', token: jwt.sign(user, secret)});
+              res.status(200).send({message: 'Success! Welcome', token: jwt.sign(user, secret)});
             } else {
-              return res.status(401).send({message: 'Incorrect Name or Password, PLease Try Again'});
+              res.status(401).send({message: 'Incorrect Name or Password, PLease Try Again'});
             };
-          });
-        };
         });
-      });
+      };
+    });
+  });
 
 module.exports = router;
