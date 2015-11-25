@@ -70,7 +70,7 @@ router.route('/')
   .vote((req, res, next) => {
     Survey.findOneAndUpdate({_id: req.body.id}, {$set: req.body}, function(err, survey){
       if(err) throw err;
-      db.surveys.update({'survey._id':req.body.id}, {$inc:{"votes.$.zeroes"}})
+      db.surveys.update({'survey._id':req.body.votes[].value()}, {$inc:{"votes.$.zeroes"}})
       res.send(survey);
     });
   });
