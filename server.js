@@ -13,6 +13,7 @@ let jwt = require('jsonwebtoken');
 let server = app.listen(3000, function () {
   console.log("This app is running on Port 3000")
 })
+var io      = require('socket.io')(server);
 
 // Use these npm tools
 
@@ -38,20 +39,3 @@ let authRoutes = require('./controllers/authorization_controller');
 app.use('/users', userRoutes);
 app.use('/surveys',surveyRoutes);
 app.use('/authorization', authRoutes);
-
-// Socket stuff
-let io = require('socket.io')(server);
-io.on('connection', function(socket){
-  console.log('a user connected');
-});
-io.on('connection', function(socket){
-  console.log('a user connected');
-  socket.on('disconnect', function(){
-    console.log('user disconnected');
-  });
-});
-io.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-	io.emit('chat message', msg);
-  });
-});

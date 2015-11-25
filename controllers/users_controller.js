@@ -4,7 +4,8 @@ let express = require('express');
 let mongoose = require('mongoose');
 let router = express.Router();
 let User = require('../models/user.js');
-let Survey = require('../models/survey.js')
+let Survey = require('../models/survey.js');
+const expressJWT = require('express-jwt');
 const secret = "keepitsecretkeepitsafe";
 //the following are the routes for '/user'
 router.route('/')
@@ -29,6 +30,20 @@ router.route('/')
           bio:      req.body.bio
         });
 
+        // OR
+        //         .post(function(req, res){
+        //   console.log(req.body);
+        //   var user = new User(req.body.user);
+        //   user.save(function(err){
+        //     if(err){
+        //       console.log(err);
+        //     } else {
+        //       console.log(user);
+        //       res.send(user);
+        //     }
+        //   });
+        // });
+
         user.save(function(err){
           if(err){
             console.log(err);
@@ -42,6 +57,28 @@ router.route('/')
           }
         });
       });
+
+// router.route('/authorization')
+//
+//       .post(function(req, res){
+//         let userParams = req.body.user;
+//         if(userParams.name == undefined || userParams.password == undefined)
+//         return res.status(401).send({message: 'Incorrect Name or Password, Please Try Again'});
+//
+//         User.findOne({ name: userParams.name}, function(err, user){
+//           user.authenticate(userParams.password, function(err, isMatch){
+//             if(err) throw err;
+//             if(isMatch){
+//               return res.status(200).send({message: 'Success! Welcome', token: jwt.sign(user, secret)});
+//             } else {
+//               return res.status(401).send({message: 'Incorrect Name or Password, PLease Try Again'});
+//             }
+//           })
+//         })
+//       });
+
+
+
 //single-user specific routes including update and delete
   router.route('/:id')
         .get((req, res, next) => {
@@ -65,8 +102,6 @@ router.route('/')
           });
         });
 
-
 module.exports = router;
-
 
 // token generation code.
