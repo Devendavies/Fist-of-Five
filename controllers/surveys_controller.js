@@ -25,18 +25,27 @@ router.route('/')
   })
 
 // Create a new survey...owner_id yet to be determined how it will be passed in
-  .post((req, res, next) => {
-    console.log(req.body);             // \/ or newSurvey
-    let newSurvey = new Survey(req.body.survey);
+  .post(function(req, res){
+    console.log(req.body);
+
+    var newSurvey = new Survey({
+      topic: req.body.topic,
+      description: req.body.description
+    });
 
 
 // user.owns.push(newSurvey.id);
-    newSurvey.save((err) => {
-      if(err) throw err;
+    newSurvey.save(function(err){
+      if(err){
+        console.log(err);
+        throw err;
+      } else {
       console.log('NEW SURVEY SAVED');
+      console.log(newSurvey);
       alert('you did it! the survey is real');
+      res.status(200);
+      }
     });
-    res.send(newSurvey);
   })
 
 //routes using specific surveys

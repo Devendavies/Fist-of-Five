@@ -29,6 +29,15 @@ $(function(){
     $('.results').empty().append(surveyTemplate);
   };
 
+  let getSurveys = function(e){
+    e.preventDefault();
+    $.ajax({
+      url: 'surveys',
+      type: 'GET',
+      dataType: 'json'
+    }).done(renderSurveys)
+  };
+
   let renderUsers = function(data){
     console.log('render users clicked!')
     console.log(data);
@@ -71,7 +80,7 @@ $(function(){
     var userData = {
       name: $('#login-name').val(),
       password: $('#login-password').val()
-    };
+    }
     $.ajax({
       url: '/authorization',
       type: 'POST',
@@ -81,19 +90,32 @@ $(function(){
     });
   };
 
+  let renderSurveyForm = function(e){
+    e.preventDefault();
+    $('.results').empty().append(newSurveyTemplate);
+  }
+
   let createSurvey = function(e){
     e.preventDefault();
-    let topic = $('#new_topic').val();
-    console.log($('#new_topic').val()); // Test
-    let description = $('#new_description').val();
-    $('.results').empty().append(newSurveyTemplate);
-    // Set by token id (YIKES)
-    // let owner_id = findByToken;
-  }
+    alert('Survey Created! Lets Poll these Douches');
+    var surveyData = {
+      topic: $('#new_topic').val(),
+      description: $('#new_description').val()
+    }
+    console.log(surveyData);
+    $.ajax({
+      url: 'surveys',
+      type: 'POST',
+      data: surveyData,
+    }).done()
+  };
 
   $('.show_users').on('click', getUsers);
   $('.show_surveys').on('click', renderSurveys);
   $('body').on('click', '#signup_button', createUser);
   $('body').on('click', '#login-button', authorize);
-  $('body').on('click', '#new-post', createSurvey);
+  $('body').on('click', '#new-post', renderSurveyForm);
+  $('body').on('click', '#create_survey', createSurvey);
+
+
 });
