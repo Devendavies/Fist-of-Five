@@ -15,11 +15,11 @@ $(function(){
   let getForms = function(){
     $.ajax({
       url: '/',
-      method: 'GET',
+      type: 'GET',
     }).done(renderForm)
   };
 
-  window.onload = getForms();
+  getForms();
 
   let renderSurveys = function(data){
     console.log(data);
@@ -45,38 +45,48 @@ $(function(){
 
   let createUser = function(e){
     e.preventDefault();
-     let name = $('#new_name').val();
-     console.log($('#new_name').val()); // Test
-     let password = $('#new_password').val();
-     let img_url = $('#new_profile_pic').val();
-     let birthday = $('#new_birthday').val();
-     let bio = $('#new_bio').val();
-     let userData = {
-       name: name,
-       password: password,
-       img_url: img_url,
-       birthday: birthday,
-       bio: bio
-     }
-     console.log(userData);
-     $.ajax({
-       url: '/users',
-       method: 'POST',
-       data: userData,
-     }).done(renderUsers)
-   };
+    alert('User Created! Welcome...')
+    // let userData = $(this).closest('form').serialize();
+    var userData = {
+      name :     $('#new_name').val(),
+      password : $('#new_password').val(),
+      img_url:   $('#new_profile_pic').val(),
+      birthday:  $('#new_birthday').val(),
+      bio:       $('#new_bio').val()
+    }
+    console.log(userData);
+    $.ajax({
+      url: '/users',
+      method: 'POST',
+      data: userData,
 
-   let createSurvey = function(e){
-     e.preventDefault();
-     let topic = $('#new_topic').val();
-     console.log($('#new_topic').val()); // Test
-     let description = $('#new_description').val();
-     // Set by token id (YIKES)
-     // let owner_id = findByToken;
-   }
+    }).done();
+  };
+
+  let authorize = function(e){
+    console.log('login button clicked');
+    e.preventDefault();
+    var userData = {
+      name: $('#login-name').val(),
+      password: $('#login-password').val()
+    };
+    $.ajax({
+      url: '/authorization',
+      type: 'POST',
+      data: userData
+    }).done();
+  };
+
+  let createSurvey = function(e){
+    e.preventDefault();
+    let topic = $('#new_topic').val();
+    console.log($('#new_topic').val()); // Test
+    let description = $('#new_description').val();
+    // Set by token id (YIKES)
+    // let owner_id = findByToken;
+  }
 
   $('.show_users').on('click', getUsers);
-  $('#signup_button').on('click', createUser);
-//  $('#signup_button').on('click', createUser(req.body));
   $('.show_surveys').on('click', renderSurveys);
-  $('#create-survey').on('click', createSurvey);
+  $('body').on('click', '#signup_button', createUser);
+  $('body').on('click', '#login-button', authorize);
