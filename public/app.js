@@ -80,7 +80,9 @@ $(function(){
       url: '/authorization',
       type: 'POST',
       data: userData
-    }).done();
+    }).done(function(user){
+      console.log(user.token);
+    });
 
   };
 

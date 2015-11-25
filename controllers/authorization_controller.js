@@ -27,9 +27,9 @@ router.route('/')
            console.log("success");
             if(isMatch){
               console.log("success");
-              return res.status(200).send({message: 'Success! Welcome', token: jwt.sign(user, secret)});
+              res.status(200).send({message: 'Success! Welcome', token: jwt.sign(user, secret)});
             } else {
-              return res.status(401).send({message: 'Incorrect Name or Password, PLease Try Again'});
+              res.status(401).send({message: 'Incorrect Name or Password, PLease Try Again'});
             };
           });
         };
