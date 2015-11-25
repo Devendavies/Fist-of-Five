@@ -24,15 +24,14 @@ $(function(){
 
   let renderSurveys = function(data){
     console.log(data);
-    data.preventDefault();
-    let surveyTemplate = renderSurveyTemplate({surveys: data});
+    let surveyTemplate = renderSurveyTemplate({survey: data});
     $('.results').empty().append(surveyTemplate);
   };
 
   let getSurveys = function(e){
     e.preventDefault();
     $.ajax({
-      url: 'surveys',
+      url: '/surveys',
       type: 'GET',
       dataType: 'json'
     }).done(renderSurveys)
@@ -111,7 +110,7 @@ $(function(){
   };
 
   $('.show_users').on('click', getUsers);
-  $('.show_surveys').on('click', renderSurveys);
+  $('body').on('click', '.show_surveys', getSurveys);
   $('body').on('click', '#signup_button', createUser);
   $('body').on('click', '#login-button', authorize);
   $('body').on('click', '#new-post', renderSurveyForm);
