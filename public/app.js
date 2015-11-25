@@ -19,12 +19,9 @@ $(function(){
     }).done(renderForm)
   };
 
-<<<<<<< HEAD
-  window.onload = getForms();
-=======
+
   getForms();
 
->>>>>>> blueberry
 
   let renderSurveys = function(data){
     console.log(data);

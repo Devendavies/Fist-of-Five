@@ -37,5 +37,5 @@ let userRoutes = require('./controllers/users_controller');
 let surveyRoutes = require('./controllers/surveys_controller');
 let authRoutes = require('./controllers/authorization_controller');
 app.use('/users', userRoutes);
-app.use('/surveys', surveyRoutes);
+app.use('/surveys',surveyRoutes);
 app.use('/authorization', authRoutes);
