@@ -6,6 +6,7 @@ $(function(){
   let renderSurveyTemplate = Handlebars.compile($('template#surveys').html());
   let renderUserTemplate = Handlebars.compile($('template#userpage').html());
   let signup_loginTemplate = Handlebars.compile($('template#signup-login').html());
+  let newSurveyTemplate = Handlebars.compile($('template#newSurveyTemplate').html());
 
   let renderForm = function(){
     let formTemplate = signup_loginTemplate();
@@ -23,6 +24,7 @@ $(function(){
 
   let renderSurveys = function(data){
     console.log(data);
+    data.preventDefault();
     let surveyTemplate = renderSurveyTemplate({surveys: data});
     $('.results').empty().append(surveyTemplate);
   };
@@ -77,10 +79,6 @@ $(function(){
     }).done(function(user){
       console.log(user.token);
     });
-<<<<<<< HEAD
-
-=======
->>>>>>> 62763e99768fc59ad23d23974414c4f207af450d
   };
 
   let createSurvey = function(e){
@@ -88,6 +86,7 @@ $(function(){
     let topic = $('#new_topic').val();
     console.log($('#new_topic').val()); // Test
     let description = $('#new_description').val();
+    $('.results').empty().append(newSurveyTemplate);
     // Set by token id (YIKES)
     // let owner_id = findByToken;
   }
@@ -96,4 +95,5 @@ $(function(){
   $('.show_surveys').on('click', renderSurveys);
   $('body').on('click', '#signup_button', createUser);
   $('body').on('click', '#login-button', authorize);
+  $('body').on('click', '#new-post', createSurvey);
 });
