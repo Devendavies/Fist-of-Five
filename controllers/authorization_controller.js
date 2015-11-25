@@ -31,9 +31,9 @@ router.route('/')
             } else {
               res.status(401).send({message: 'Incorrect Name or Password, PLease Try Again'});
             };
-          });
-        };
         });
-      });
+      };
+    });
+  });
 
 module.exports = router;
