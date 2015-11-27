@@ -109,12 +109,23 @@ $(function(){
     }).done()
   };
 
+
+//body click events
   $('.show_users').on('click', getUsers);
   $('body').on('click', '.show_surveys', getSurveys);
   $('body').on('click', '#signup_button', createUser);
   $('body').on('click', '#login-button', authorize);
   $('body').on('click', '#new-post', renderSurveyForm);
   $('body').on('click', '#create_survey', createSurvey);
+
+//click events for list of vote options
+  $('body').on('click', '#fist',  );
+  $('body').on('click', '#one-finger',  );
+  $('body').on('click', '#two-fingers',  );
+  $('body').on('click', '#three-fingers',  );
+  $('body').on('click', '#four-fingers',  );
+  $('body').on('click', '#five-fingers',  );
+
 
 
 });
