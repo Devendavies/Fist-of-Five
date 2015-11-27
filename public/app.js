@@ -113,6 +113,8 @@ $(function(){
 
   let liftFingers = function(){
 
+
+
   }
 
 
@@ -129,12 +131,12 @@ $(function(){
   $('body').on('click', '#create_survey', createSurvey);
 
 //click events for list of vote options
-  $('body').on('click', '#fist', liftFingers);
-  $('body').on('click', '#one-finger', liftFingers);
-  $('body').on('click', '#two-fingers', liftFingers);
-  $('body').on('click', '#three-fingers', liftFingers);
-  $('body').on('click', '#four-fingers', liftFingers);
-  $('body').on('click', '#five-fingers', liftFingers);
+  $('body').on('click', '#finger0', liftFingers);
+  $('body').on('click', '#finger1', liftFingers);
+  $('body').on('click', '#finger2', liftFingers);
+  $('body').on('click', '#finger3', liftFingers);
+  $('body').on('click', '#finger4', liftFingers);
+  $('body').on('click', '#finger5', liftFingers);
 
 
 
