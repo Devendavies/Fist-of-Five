@@ -109,6 +109,16 @@ $(function(){
     }).done()
   };
 
+//IN PROGRESS...function that adds to vote tally in surveys objects
+
+  let liftFingers = function(){
+
+  }
+
+
+
+
+
 
 //body click events
   $('.show_users').on('click', getUsers);
@@ -119,12 +129,12 @@ $(function(){
   $('body').on('click', '#create_survey', createSurvey);
 
 //click events for list of vote options
-  $('body').on('click', '#fist',  );
-  $('body').on('click', '#one-finger',  );
-  $('body').on('click', '#two-fingers',  );
-  $('body').on('click', '#three-fingers',  );
-  $('body').on('click', '#four-fingers',  );
-  $('body').on('click', '#five-fingers',  );
+  $('body').on('click', '#fist', liftFingers);
+  $('body').on('click', '#one-finger', liftFingers);
+  $('body').on('click', '#two-fingers', liftFingers);
+  $('body').on('click', '#three-fingers', liftFingers);
+  $('body').on('click', '#four-fingers', liftFingers);
+  $('body').on('click', '#five-fingers', liftFingers);
 
 
 
