@@ -14,6 +14,8 @@ input {
   color: silver;
 }
 
+/* LOGIN AND SIGNUP PAGE */
+
 .welcomeBack {
   padding-top: 20px;
   list-style: none;
@@ -32,7 +34,23 @@ input {
   background-color: rgba(255, 0, 0, 0.2);
 }
 
+/* SURVEY LISTING */
+
 .fist-list li {
   display: inline;
-  
+
+}
+
+/* NEW SURVEY PAGE */
+.newPostContainer {
+
+}
+
+.newPostContainer li{
+
+}
+
+
+.newPostContainer h3{
+
 }
