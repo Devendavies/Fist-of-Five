@@ -1,3 +1,11 @@
+body {
+  background: url("../images/handsraised.jpg");
+}
+
+div {
+  border: solid red 2px;
+}
+
 .nav-bar {
   color: rgba(0 , 0, 255, 0.2);
   list-style-type: none;
@@ -36,16 +44,60 @@ input {
 
 /* SURVEY LISTING */
 
-.surveys {
-  float: left;
+.surveyContainer {
   overflow: hidden;
 }
 
-.fist-list li {
-  display: inline;
+.survey {
+  align-self: center;
+  text-align: center;
+  padding-bottom: 40px;
+  float: left;
+  overflow: hidden;
+  height: 80px;
+  width: 550px;
+  margin: 5px;
+  padding: 10px;
 }
 
-.counts ul {
+.survey h3 {
+  margin: 5px;
+}
+
+.voteButtons {
+  float: left;
+  width: 550px;
+  margin: 5px;
+}
+
+.voteButtons button {
+  border-radius: 12px;
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+.voteButtons li {
+  display: inline;
+  height: 100px;
+  width: 550px;
+  align-items: center;
+  padding: 10px;
+}
+
+.voteButtons button img {
+  border-radius: 4px;
+  height:40px;
+  width: 40px;
+}
+
+.voteCounts {
+  position: relative;
+  padding-bottom: 30px;
+  float: right;
+}
+
+.voteCounts ul {
+  width: 100px;
+  text-align: left;
   font-size: 10px;
   list-style: none;
 }
@@ -56,14 +108,5 @@ input {
 
 /* NEW SURVEY PAGE */
 .newPostContainer {
-
-}
-
-.newPostContainer li{
-
-}
-
-
-.newPostContainer h3{
 
 }
