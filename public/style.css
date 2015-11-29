@@ -21,7 +21,7 @@ input {
   list-style: none;
   float: left;
   height: 400px;
-  width: 45%;
+  width: 40%;
   background-color: rgba(0, 255, 0, 0.3);
 }
 
@@ -30,15 +30,28 @@ input {
   list-style: none;
   float: right;
   height: 400px;
-  width: 45%;
+  width: 40%;
   background-color: rgba(255, 0, 0, 0.2);
 }
 
 /* SURVEY LISTING */
 
+.surveys {
+  float: left;
+  overflow: hidden;
+}
+
 .fist-list li {
   display: inline;
+}
 
+.counts ul {
+  font-size: 10px;
+  list-style: none;
+}
+
+.ChatWindow {
+  float: right;
 }
 
 /* NEW SURVEY PAGE */
