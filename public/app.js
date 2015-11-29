@@ -109,12 +109,45 @@ $(function(){
     }).done()
   };
 
+//IN PROGRESS...function that adds to vote tally in surveys objects
+
+  let liftFingers = function(){
+    var fistList = $('.fist-list li');
+    
+    for(var i = 0; i < fistList.length; i++){
+      if($('#finger' + i).data('clicked')){
+        //need to grab votes data from survey schema and increment it
+        //we may need to change the votes names to include numbers so we can iterate instad of writing new function for each
+        //deven, since you set up the survey model i thoguht you may have an idea for this
+      }
+    }
+    $.ajax({
+      url: '/surveys/:id',
+      type: 'PUT',
+
+    }).done()
+  };
+
+
+
+
+//body click events
   $('.show_users').on('click', getUsers);
   $('body').on('click', '.show_surveys', getSurveys);
   $('body').on('click', '#signup_button', createUser);
   $('body').on('click', '#login-button', authorize);
   $('body').on('click', '#new-post', renderSurveyForm);
   $('body').on('click', '#create_survey', createSurvey);
+
+//click events for list of vote options
+
+  $('body').on('click', '#finger0', liftFingers);
+  $('body').on('click', '#finger1', liftFingers);
+  $('body').on('click', '#finger2', liftFingers);
+  $('body').on('click', '#finger3', liftFingers);
+  $('body').on('click', '#finger4', liftFingers);
+  $('body').on('click', '#finger5', liftFingers);
+
 
 
 });

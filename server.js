@@ -41,9 +41,7 @@ app.use('/authorization', authRoutes);
 
 // Socket stuff
 let io = require('socket.io')(server);
-io.on('connection', function(socket){
-  console.log('a user connected');
-});
+
 io.on('connection', function(socket){
   console.log('a user connected');
   socket.on('disconnect', function(){

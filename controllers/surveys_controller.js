@@ -50,7 +50,7 @@ router.route('/')
 //routes using specific surveys
   router.route('/:id')
 //retrieve and display a survey based on its id param
-  .get((req, res, next) => {
+  .get(function(req, res, next) {
     Survey.findById(req.params.id).exec(function(err, survey){
       if(err) throw err;
     res.send(survey);
@@ -58,7 +58,7 @@ router.route('/')
   })
 
 //find and update a survey based on its id param
-  .put((req, res, next) => {
+  .put(function(req, res, next) {
     Survey.findOneAndUpdate({_id: req.params.id}, {$set: req.body}, function(err, survey){
       if(err) throw err;
       res.send(survey);
@@ -66,7 +66,7 @@ router.route('/')
   })
 
 //find and delete a survey based on its id param
-  .delete((req, res, next) => {
+  .delete(function(req, res, next) {
     Survey.findOneAndRemove({_id: req.params.id}, function(err){
       if(err) throw err;
       alert('survey deleted');
