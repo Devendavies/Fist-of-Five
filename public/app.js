@@ -113,9 +113,10 @@ $(function(){
 
   let liftFingers = function(){
     var fistList = $('.fist-list li');
-    
+
     for(var i = 0; i < fistList.length; i++){
       if($('#finger' + i).data('clicked')){
+        this.votes[i] += 1;
         //need to grab votes data from survey schema and increment it
         //we may need to change the votes names to include numbers so we can iterate instad of writing new function for each
         //deven, since you set up the survey model i thoguht you may have an idea for this
