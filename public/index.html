@@ -11,13 +11,14 @@
     <script>
 
       var socket = io();
-      $('.chatActions').submit(function(){
-        socket.emit('chat message', $('#m').val());
-        $('#m').val('');
+      $('body').on('click', '#sendMessage', function(){
+        console.log('chat submit licked')
+        socket.emit('chat message', $('#userMessage').val());
+        $('#userMessage').val('');
         return false;
       });
       socket.on('chat message', function(msg){
-        $('chatHistory').append($('<li>').text(msg));
+        $('.chatMessages').append($('<li>').text(msg));
       });
 
     </script>
@@ -31,8 +32,9 @@
       <div class="nav-bar">
         <ul class= "nav-list" list-style="none">
           <!-- Shows login or logout if token -->
-          <li id="login"><a href="/login" ng-show="!token">  Login  </a></li>
-          <li id="logout"><a href="/logout" ng-show="token"> Logout </a></li>
+
+          <li id="login"><a href="/" ng-show="!token">  Login  </a></li>
+          <li id="logout"><a href="/" ng-show="token"> Logout </a></li>
 
           <li id="myInfo"><a href="/:id"> Profile </a></li>
           <li role="create" id="new-post"><a href="/create"> New Survey </a></li>
@@ -113,7 +115,7 @@
       <!-- USER PAGE TEMPLATE -->
       <template id="userpage">
         {{#each user}}
-        <h1>{{this.name}}</h1>
+        <h2>{{this.name}}</h2>
         <img src="{{this.img_url}}"></img>
         <p>{{this.bio}}</p>
         {{/each}}
@@ -141,16 +143,20 @@
 <!-- Chat Starter Code -->
 <div class="ChatWindow">   </div>
 <div class="usersLoggedIn"></div>
-<div class="chatHistory"> Chat History </div>
+<div class="chatHistory">
+  <h2>Chat History</h2>
+  <ul class="chatMessages">
+  </ul>
+</div>
 
-<form class="chatActions" action="" method="post">
+<form class="chatActions" action="">
 <div class="message">
 <label for="Chat-Message"> message </label>
-<input type="text" name="message" value="">
+<input type="text" id="userMessage" name="message" value="">
 </div>
 <div class="">
 Send
-<input type="button" name="sendMessage" value="Send">
+<input type="button" id="sendMessage" value="Send">
 </div>
 </form>
 </div>
