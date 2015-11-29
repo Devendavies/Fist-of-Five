@@ -9,7 +9,6 @@
     <script src="/socket.io/socket.io.js"></script>
 
     <script>
-
       var socket = io();
       $('body').on('click', '#sendMessage', function(){
         console.log('chat submit licked')
@@ -20,7 +19,6 @@
       socket.on('chat message', function(msg){
         $('.chatMessages').append($('<li>').text(msg));
       });
-
     </script>
 
     <title>Index</title>
@@ -71,25 +69,27 @@
 
       <!-- SURVEYS TEMPLATE -->
       <template id="surveys">
-
         {{#each survey}}
 
-        <div class="surveys">
+      <div class="surveyContainer">
+
+        <div class="survey">
           <h3> {{this.topic}} </h3>
           <h4> {{this.description}} </h4>
-          <div class="fof-nums">
-            <ul class="fist-list">
-              <li><button id="finger0"><img src="/Hand/0.png" value='0'></img></button></li>
-              <li><button id="finger1"><img src="/Hand/1.png" value='1'></img></button></li>
-              <li><button id="finger2"><img src="/Hand/2.png" value='2'></img></button></li>
-              <li><button id="finger3"><img src="/Hand/3.png" value='3'></img></button></li>
-              <li><button id="finger4"><img src="/Hand/4.png" value='4'></img></button></li>
-              <li><button id="finger5"><img src="/Hand/5.png" value='5'></img></button></li>
-            </ul>
-          </div>
         </div>
 
-        <div class="counts">
+        <div class='voteButtons'>
+          <ul>
+            <li><button id="finger0"><img src="/Hand/0.png" value='0'></img></button></li>
+            <li><button id="finger1"><img src="/Hand/1.png" value='1'></img></button></li>
+            <li><button id="finger2"><img src="/Hand/2.png" value='2'></img></button></li>
+            <li><button id="finger3"><img src="/Hand/3.png" value='3'></img></button></li>
+            <li><button id="finger4"><img src="/Hand/4.png" value='4'></img></button></li>
+            <li><button id="finger5"><img src="/Hand/5.png" value='5'></img></button></li>
+          </ul>
+        </div>
+
+        <div class="voteCounts">
           <ul>
             <li><p> 0 - {{this.votes.fist0}} </p></li>
             <li><p> 1 - {{this.votes.fist1}} </p></li>
@@ -101,8 +101,9 @@
         </div>
 
         <div class="counts">
-
         </div>
+
+      </div>
 
         {{/each}}
 
@@ -110,6 +111,21 @@
 
         </div>
 
+        <!-- Chat Starter Code -->
+        <div class="ChatWindow">
+          <div class="usersLoggedIn"></div>
+          <div class="chatHistory"> Chat History </div>
+
+          <form class="chatActions" action="" method="post">
+            <div class="message">
+              <label for="Chat-Message"> message </label>
+              <input type="text" name="message" value="">
+            </div>
+            <div class="">
+              Send <input type="button" name="sendMessage" value="Send">
+            </div>
+          </form>
+        </div>
       </template>
 
       <!-- USER PAGE TEMPLATE -->
@@ -138,25 +154,3 @@
     </script>
   </body>
 </html>
-
-
-<!-- Chat Starter Code -->
-<div class="ChatWindow">   </div>
-<div class="usersLoggedIn"></div>
-<div class="chatHistory">
-  <h2>Chat History</h2>
-  <ul class="chatMessages">
-  </ul>
-</div>
-
-<form class="chatActions" action="">
-<div class="message">
-<label for="Chat-Message"> message </label>
-<input type="text" id="userMessage" name="message" value="">
-</div>
-<div class="">
-Send
-<input type="button" id="sendMessage" value="Send">
-</div>
-</form>
-</div>
