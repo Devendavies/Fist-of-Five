@@ -113,7 +113,7 @@ $(function(){
 
   let liftFingers = function(){
     var fistList = $('.fist-list li');
-    
+
     for(var i = 0; i < fistList.length; i++){
       if($('#finger' + i).data('clicked')){
         //need to grab votes data from survey schema and increment it
