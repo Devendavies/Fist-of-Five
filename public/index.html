@@ -10,13 +10,14 @@
 
     <script>
       var socket = io();
-      $('.chatActions').submit(function(){
-        socket.emit('chat message', $('#m').val());
-        $('#m').val('');
+      $('body').on('click', '#sendMessage', function(){
+        console.log('chat submit licked')
+        socket.emit('chat message', $('#userMessage').val());
+        $('#userMessage').val('');
         return false;
       });
       socket.on('chat message', function(msg){
-        $('chatHistory').append($('<li>').text(msg));
+        $('.chatMessages').append($('<li>').text(msg));
       });
     </script>
 
@@ -29,7 +30,6 @@
       <image src="https://openclipart.org/image/2400px/svg_to_png/211409/raised-fist.png" id="leftfist">
       <h1> Fist Of Five </h1>
       <image src="https://openclipart.org/image/2400px/svg_to_png/211409/raised-fist.png" id="rightfist">
-
       <h4 class="subheader"> Give your teach a hand <h4>
     </div>
 
@@ -38,11 +38,11 @@
         <!-- Shows login or logout if token -->
         <button id="login"><a href="/" ng-show="!token">  Login  </a></button>
         <button id="logout"><a href="/" ng-show="token"> Logout </a></button>
+
         <button id="myInfo"><a href="/:id"> Profile                   </a></button>
         <button role="create" id="new-post"><a href="/create"> New Survey </a></button>
-
-          <button class="show_users"><a>Show Users</a></button>
-          <button class="show_surveys"><a>Show Surveys</a></button>
+        <button class="show_users"><a>Show Users</a></button>
+        <button class="show_surveys"><a>Show Surveys</a></button>
 
       </ul>
     </div>
