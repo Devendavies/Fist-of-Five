@@ -100,21 +100,21 @@
           </ul>
         </div>
 
-        <div class="voteCounts">
-          <ul>
-            <li><p> 0 - {{this.votes.fist0}} </p></li>
-            <li><p> 1 - {{this.votes.fist1}} </p></li>
-            <li><p> 2 - {{this.votes.fist2}} </p></li>
-            <li><p> 3 - {{this.votes.fist3}} </p></li>
-            <li><p> 4 - {{this.votes.fist4}} </p></li>
-            <li><p> 5 - {{this.votes.fist5}} </p></li>
-          </ul>
-        </div>
-
-        <div class="counts">
-        </div>
-
       </div>
+
+
+      <div class="voteCounts">
+        <ul>
+          <li><p> 0 - {{this.votes.fist0}} </p></li>
+          <li><p> 1 - {{this.votes.fist1}} </p></li>
+          <li><p> 2 - {{this.votes.fist2}} </p></li>
+          <li><p> 3 - {{this.votes.fist3}} </p></li>
+          <li><p> 4 - {{this.votes.fist4}} </p></li>
+          <li><p> 5 - {{this.votes.fist5}} </p></li>
+        </ul>
+      </div>
+
+
 
         {{/each}}
 
@@ -152,9 +152,11 @@
       <template id="newSurveyTemplate">
         <div class="newPostContainer">
           <ul>
-            <li> Topic:    <input id="new_topic" type="text" placeholder="What we talkin bout?">  </li>
-            <li> Question: <input id="new_description" type="text" placeholder="Tell me more..."> </li>
-            <li><button id="create_survey">Post</button></li>
+            <li> Topic:    </li>
+            <li> <input  id="new_topic"       type="text" placeholder="What we talkin bout?"></li>
+            <li> Question: </li>
+            <li> <input  id="new_description" type="text" placeholder="Tell me more..."> </li>
+            <li> <button id="create_survey"> Lets see how stupid they are...</button></li>
           </ul>
         </div>
       </template>

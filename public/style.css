@@ -1,6 +1,7 @@
 /* Core Styling */
 body {
   background: url("https://www.democracy-democratie.ca/images/runner_up.jpg");
+  background-attachment: fixed;
 }
 h1 {
   color: #404040;
@@ -43,12 +44,38 @@ div {
   border: solid red 2px;
 }
 
-.subheader { font-size: 26px; font-weight: 300; color: #ffcc66; margin: 0 0 10px; }
+.subheader {
+  font-size:   26px;
+  font-weight: 300;
+  color:       #ffcc66;
+  margin:      0 0 10px;
+}
 
-.titlebox { text-align: center; style: inline; background-color: rgba( 0, 0, 255, 0.2);}
-.titlebox img { position: relative ; overflow: hidden; width: 40px; height: 40px; float: left; }
-#rightfist { position: absolute; right: 300px; top: 15px; }
-#leftfist { position: absolute; left: 300px; top: 15px; }
+.titlebox {
+  text-align: center;
+  style: inline;
+  background-color: rgba( 0, 0, 255, 0.2);
+}
+
+.titlebox img {
+  position: relative;
+  overflow: hidden;
+  width: 40px;
+  height: 40px;
+  float: left;
+}
+
+#rightfist {
+  position: absolute;
+  right: 300px;
+  top: 15px;
+}
+
+#leftfist {
+  position: absolute;
+  left: 300px;
+  top: 15px;
+}
 
 /* Navigation Bar */
 
@@ -118,28 +145,35 @@ textarea {
 /* SURVEY LISTING */
 
 .surveyContainer {
-  overflow: hidden;
+  border: solid rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  background: url("http://eskipaper.com/images/clock-wallpapers-1.jpg");
+  background-size: 550px, 300px;
+  background-repeat: no-repeat;
+  width: 500px;
+  height: 200px;
+  z-index: -1000;
 }
 
 .survey {
-  align-self: center;
-  float: left;
+  position: center;
   height: 80px;
   margin: 5px;
   overflow: hidden;
   padding: 10px 0px 40px 0px;
   text-align: center;
-  width: 550px;
-}
-
-.survey h3 {
-  margin: 5px;
 }
 
 .voteButtons {
+  top: 200px;
   float: left;
+  position: relative;
   margin: 5px;
   width: 550px;
+  z-index: +1000;
+  top: 300px;
 }
 
 .voteButtons button {
@@ -162,23 +196,45 @@ textarea {
 }
 
 .voteCounts {
-  float: right;
-  padding-bottom: 30px;
+  background-color: rgba(255, 255, 255, 0.5);;
   position: relative;
+  float: right;
+  right: 20px;
+  top: 20px;
 }
 
 .voteCounts ul {
-  font-size: 10px;
+  height: 50px;
+  font-size: 8px;
+  height: 110px;
   list-style: none;
+  padding-left: 5px;
   text-align: left;
   width: 100px;
 }
 
+.voteCounts p {
+  font-size: 8px;
+  padding: 2px;
+  height: 10px;
+  width: 40px;
+  margin: 0px;
+}
+
 .ChatWindow {
-  float: right;
+  margin: 0 auto;
+  position: bottom;
+  right: 760px;
+  top: 200px;
 }
 
 /* NEW SURVEY PAGE */
 .newPostContainer {
+  background: url("http://eskipaper.com/images/clock-wallpapers-1.jpg");
+}
 
+.newPostContainer li {
+  color: beige;
+  text-align: center;
+  list-style: none;
 }
