@@ -72,29 +72,29 @@
 
         {{#each survey}}
 
-        <div class="surveys">
+        <div class="surveys" data-id={{this._id}}>
           <h3> {{this.topic}} </h3>
           <h4> {{this.description}} </h4>
           <div class="fof-nums">
             <ul class="fist-list">
-              <li><button id="finger0"><img src="/Hand/0.png" value='0'></img></button></li>
-              <li><button id="finger1"><img src="/Hand/1.png" value='1'></img></button></li>
-              <li><button id="finger2"><img src="/Hand/2.png" value='2'></img></button></li>
-              <li><button id="finger3"><img src="/Hand/3.png" value='3'></img></button></li>
-              <li><button id="finger4"><img src="/Hand/4.png" value='4'></img></button></li>
-              <li><button id="finger5"><img src="/Hand/5.png" value='5'></img></button></li>
+              <li><button id="finger0"><img src="/Hand/0.png" value='0' ></img></button></li>
+              <li><button id="finger1"><img src="/Hand/1.png" value='1' ></img></button></li>
+              <li><button id="finger2"><img src="/Hand/2.png" value='2' ></img></button></li>
+              <li><button id="finger3"><img src="/Hand/3.png" value='3' ></img></button></li>
+              <li><button id="finger4"><img src="/Hand/4.png" value='4' ></img></button></li>
+              <li><button id="finger5"><img src="/Hand/5.png" value='5' ></img></button></li>
             </ul>
           </div>
         </div>
 
         <div class="counts">
           <ul>
-            <li><p> 0 - {{this.votes.fist0}} </p></li>
-            <li><p> 1 - {{this.votes.fist1}} </p></li>
-            <li><p> 2 - {{this.votes.fist2}} </p></li>
-            <li><p> 3 - {{this.votes.fist3}} </p></li>
-            <li><p> 4 - {{this.votes.fist4}} </p></li>
-            <li><p> 5 - {{this.votes.fist5}} </p></li>
+            <li><p> 0 - {{this.votes[0]}} </p></li>
+            <li><p> 1 - {{this.votes[1]}} </p></li>
+            <li><p> 2 - {{this.votes[2]}} </p></li>
+            <li><p> 3 - {{this.votes[3]}} </p></li>
+            <li><p> 4 - {{this.votes[4]}} </p></li>
+            <li><p> 5 - {{this.votes[5]}} </p></li>
           </ul>
         </div>
 
