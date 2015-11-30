@@ -43,7 +43,7 @@ module.exports.addVote = function(id, fistType, callback) {
 
       switch(fistType) {
         case 'fist0':
-          survey.votes.fist0 += 1;
+          survey.votes[0].fist0 += 1;
           break;
         case 'fist 1':
           survey.votes.fist1 += 1;
@@ -62,7 +62,7 @@ module.exports.addVote = function(id, fistType, callback) {
       }
     survey.save(function(err) {
       if(err) throw err;
-      
+
 
     });
   });
