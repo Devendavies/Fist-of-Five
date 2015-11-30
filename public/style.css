@@ -39,9 +39,9 @@ input {
   width: 200px;
 }
 
-
+/* Troubleshoot div positioning */
 div {
-  border: solid red 2px;
+  /*border: solid red 2px;*/
 }
 
 .subheader {
@@ -237,4 +237,35 @@ textarea {
   color: beige;
   text-align: center;
   list-style: none;
+}
+
+/* User Listing */
+
+.user-profile {
+  border: solid rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  background-image: url("http://wallpapercave.com/wp/4SSFz3R.png");
+  background-repeat: no-repeat;
+  background-size: 550px, 300px;
+  height: 300px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  width: 500px;
+  z-index: -1000;
+}
+
+.user-profile img {
+  border-radius: 30px;
+  height: 60px;
+  padding: 10px 5px 5px 10px;
+  width: 60px;
+}
+
+.user-profile a {
+  font-size: 14px;
+}
+
+.aboutBar {
+  color: gold;
 }

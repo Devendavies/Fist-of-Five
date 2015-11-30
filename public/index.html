@@ -142,9 +142,14 @@
       <!-- USER PAGE TEMPLATE -->
       <template id="userpage">
         {{#each user}}
-        <h1>{{this.name}}</h1>
-        <img src="{{this.img_url}}"></img>
-        <p>{{this.bio}}</p>
+
+          <div class="user-profile">
+            <h1><img src="{{this.img_url}}"></img> {{this.name}}</h1>
+            <p class="aboutBar"> About Ma Awesome Self </p>
+            <a>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+            <a> {{this.bio}} </a>
+          </div>
+
         {{/each}}
       </template>
 
