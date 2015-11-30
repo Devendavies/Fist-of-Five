@@ -24,43 +24,56 @@
 
   </head>
   <body>
-    <h1> Fist Of Five </h1>
 
-      <div class="nav-bar">
-        <ul class= "nav-list" list-style="none">
-          <!-- Shows login or logout if token -->
-          <li id="login"><a href="/login" ng-show="!token">  Login  </a></li>
-          <li id="logout"><a href="/logout" ng-show="token"> Logout </a></li>
+    <div class="titlebox">
+      <image src="https://openclipart.org/image/2400px/svg_to_png/211409/raised-fist.png" id="leftfist">
+      <h1> Fist Of Five </h1>
+      <image src="https://openclipart.org/image/2400px/svg_to_png/211409/raised-fist.png" id="rightfist">
 
-          <li id="myInfo"><a href="/:id"> Profile </a></li>
-          <li role="create" id="new-post"><a href="/create"> New Survey </a></li>
-        </ul>
-      </div>
+      <h4 class="subheader"> Give your teach a hand <h4>
+    </div>
 
-      <div class="buttons">
-        <button class="show_users">Show Users</button>
-        <button class="show_surveys">Show Surveys</button>
-      </div>
+    <div class="nav-bar">
+      <ul class= "nav-list" list-style="none">
+        <!-- Shows login or logout if token -->
+        <button id="login"><a href="/" ng-show="!token">  Login  </a></button>
+        <button id="logout"><a href="/" ng-show="token"> Logout </a></button>
+        <button id="myInfo"><a href="/:id"> Profile                   </a></button>
+        <button role="create" id="new-post"><a href="/create"> New Survey </a></button>
+
+          <button class="show_users"><a>Show Users</a></button>
+          <button class="show_surveys"><a>Show Surveys</a></button>
+
+      </ul>
+    </div>
+
 
       <!-- SIGN-IN OR LOGIN TEMPLATE -->
       <template id="signup-login">
         <div class="loginBox">
             <ul class="welcomeBack">
-              <li>Name:     <input type="text" id="login-name"     placeholder="Name"></li>
-              <li>Password: <input type="text" id="login-password" placeholder="password"></li>
-              <li><button id="login-button">Login</button></li>
+              <li> Name:     </li>
+              <li> <input type="text" id="login-name"     placeholder="What be your name?">    </li>
+              <li> Password: </li>
+              <li> <input type="text" id="login-password" placeholder="European swallow velovity?"></li>
+              <li> <button id="login-button">Login (begin the shinnanigans)</button></li>
             </ul>
         </div>
 
         <!-- Create New User -->
         <div class="signupBox">
             <ul class="wiseChoice">
-              <li>Name:        <input id="new_name" name="name" type="text" placeholder="Name">            </li>
-              <li>Password:    <input id="new_password" name="password" type="text" placeholder="Password">    </li>
-              <li>Profile Picture Url: <input id="new_profile_pic" name="img_url" type="text" placeholder="Picture">  </li>
-              <li>Birthday:    <input id="new_birthday" name="birthday" type="date" placeholder="Birthday">    </li>
-              <li>About Me:    <textarea id="new_bio" name="bio" type="text" placeholder="Bio"></textarea></li><br>
-              <li><button id="signup_button">Signup!</button></li>
+              <li> Name:    </li>
+              <li>  <input id="new_name" name="name" type="text" placeholder="Announce thyself!">               </li>
+              <li>Password: </li>
+              <li>  <input id="new_password" name="password" type="text" placeholder="Tell me a secret">   </li>
+              <li>Profile Picture Url:                                                             </li>
+              <li>  <input id="new_profile_pic" name="img_url" type="text" placeholder="Any good pics to recommend?">  </li>
+              <li>Birthday: </li>
+              <li>  <input id="new_birthday" name="birthday" type="date" placeholder="How old are you youngin?">   </li>
+              <li>About Me: </li>
+              <li>  <textarea id="new_bio" name="bio" type="text" placeholder="Tell me a little about yourself... else I shall be forced to stalk..."></textarea></li><br>
+              <li><button id="signup_button"> Join the masses!</button></li>
             </ul>
         </div>
       </template>

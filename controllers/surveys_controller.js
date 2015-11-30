@@ -33,7 +33,6 @@ router.route('/')
       description: req.body.description
     });
 
-
 // user.owns.push(newSurvey.id);
     newSurvey.save(function(err){
       if(err){
@@ -46,6 +45,23 @@ router.route('/')
       }
     });
   })
+
+ // e.g. survey/addvote?id=~~~&fistType=~~~
+ router.route('/addvote')
+   .get(function(req, res) {
+     var id = req.query.id;
+     var fistType = req.query.fistType;
+     Survey.addVote( id, fistType, function(err, updatedSurvey) {
+
+       // if(err) throw err;
+
+       res.status(200).json({
+         success: true,
+         message: 'Survey was successfully voted',
+         survey: updatedSurvey
+       });
+     });
+   });
 
 //routes using specific surveys
   router.route('/:id')

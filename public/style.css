@@ -1,10 +1,56 @@
+/* Core Styling */
 body {
-  background: url("../images/handsraised.jpg");
+  background: url("https://www.democracy-democratie.ca/images/runner_up.jpg");
 }
+h1 {
+  color: #404040;
+  font-family:
+  'Trocchi',
+  serif; font-size: 45px;
+  font-weight:      normal;
+  line-height:      48px;
+  margin:           0;
+}
+
+h2 {
+  color: #7c795d;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size:   28px;
+  font-weight: 400;
+  line-height: 32px;
+  margin:      0 0 24px;
+}
+
+p {
+  color:   #4c4a37;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size:   18px;
+  line-height: 32px;
+  margin:      0 0 10px;
+}
+
+a {
+  color:           #ff9900;
+  text-decoration: inherit;
+}
+
+input {
+  width: 200px;
+}
+
 
 div {
   border: solid red 2px;
 }
+
+.subheader { font-size: 26px; font-weight: 300; color: #ffcc66; margin: 0 0 10px; }
+
+.titlebox { text-align: center; style: inline; background-color: rgba( 0, 0, 255, 0.2);}
+.titlebox img { position: relative ; overflow: hidden; width: 40px; height: 40px; float: left; }
+#rightfist { position: absolute; right: 300px; top: 15px; }
+#leftfist { position: absolute; left: 300px; top: 15px; }
+
+/* Navigation Bar */
 
 .nav-bar {
   color: rgba(0 , 0, 255, 0.2);
@@ -17,29 +63,56 @@ div {
 }
 
 input {
-  border-radius: 3px;
   background-color: grey;
+  border-radius: 3px;
   color: silver;
 }
 
 /* LOGIN AND SIGNUP PAGE */
 
 .welcomeBack {
-  padding-top: 20px;
-  list-style: none;
+  background-color: rgba(0, 255, 0, 0.3);
+  color: rgba(255, 0, 0, 0.7);
   float: left;
   height: 400px;
-  width: 40%;
-  background-color: rgba(0, 255, 0, 0.3);
+  list-style: none;
+  padding: 20px 0px 0px 10px;
+  width: 47%;
+}
+
+.welcomeBack li {
+  text-align: center;
+}
+
+.welcomeBack input:hover {
+  background-color: rgba(255, 0, 0, 0.5);;
+  border-radius: 3px 3px 3px 3px;
 }
 
 .wiseChoice {
-  padding-top: 20px;
-  list-style: none;
+  background-color: rgba(255, 0, 0, 0.2);
+  color: rgba( 0, 255, 0, 0.7);
   float: right;
   height: 400px;
-  width: 40%;
-  background-color: rgba(255, 0, 0, 0.2);
+  list-style: none;
+  padding: 20px 0px 10px 0 ;
+  width: 47%;
+}
+
+.wiseChoice li {
+  text-align: center;
+}
+
+.wiseChoice input:hover {
+  background-color: rgba(0, 255, 0, 0.3);
+  border-radius: 3px 3px 3px 3px;
+}
+
+textarea {
+  color: grey;
+  height: 100px;
+  width: 200px;
+  background: beige;
 }
 
 /* SURVEY LISTING */
@@ -50,14 +123,13 @@ input {
 
 .survey {
   align-self: center;
-  text-align: center;
-  padding-bottom: 40px;
   float: left;
-  overflow: hidden;
   height: 80px;
-  width: 550px;
   margin: 5px;
-  padding: 10px;
+  overflow: hidden;
+  padding: 10px 0px 40px 0px;
+  text-align: center;
+  width: 550px;
 }
 
 .survey h3 {
@@ -66,21 +138,21 @@ input {
 
 .voteButtons {
   float: left;
-  width: 550px;
   margin: 5px;
+  width: 550px;
 }
 
 .voteButtons button {
-  border-radius: 12px;
   background-color: rgba(255, 0, 0, 0.5);
+  border-radius: 12px;
 }
 
 .voteButtons li {
+  align-items: center;
   display: inline;
   height: 100px;
-  width: 550px;
-  align-items: center;
   padding: 10px;
+  width: 550px;
 }
 
 .voteButtons button img {
@@ -90,16 +162,16 @@ input {
 }
 
 .voteCounts {
-  position: relative;
-  padding-bottom: 30px;
   float: right;
+  padding-bottom: 30px;
+  position: relative;
 }
 
 .voteCounts ul {
-  width: 100px;
-  text-align: left;
   font-size: 10px;
   list-style: none;
+  text-align: left;
+  width: 100px;
 }
 
 .ChatWindow {

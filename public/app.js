@@ -70,7 +70,7 @@ $(function(){
       method: 'POST',
       data: userData,
 
-    }).done();
+    }).done(getUsers);
   };
 
   let authorize = function(e){
@@ -86,6 +86,10 @@ $(function(){
       data: userData
     }).done(function(user){
       console.log(user.token);
+      $(welcomeBack).empty();
+      // clearing out BEFORE action...
+      // $(input#login-name).reset();
+      // $(input.password).reset();
     });
   };
 
@@ -96,10 +100,11 @@ $(function(){
 
   let createSurvey = function(e){
     e.preventDefault();
-    alert('Survey Created! Lets Poll these Douches');
+    alert('Survey Created! Poll baby poll!');
     var surveyData = {
       topic: $('#new_topic').val(),
-      description: $('#new_description').val()
+      description: $('#new_description').val(),
+      votes: [0, 0, 0, 0, 0, 0]
     }
     console.log(surveyData);
     $.ajax({
@@ -111,23 +116,29 @@ $(function(){
 
 //IN PROGRESS...function that adds to vote tally in surveys objects
 
-  let liftFingers = function(){
-    var fistList = $('.fist-list li');
+  // let liftFingers = function(event){
+  //   event.preventDefault();
+  //
+  //   let $surveysDiv = $(event.target).closest('.surveys');
+  //   let id = $surveysDiv.data('id');
+  //   let fistType = $(event.target).attr('value');
 
-    for(var i = 0; i < fistList.length; i++){
-      if($('#finger' + i).data('clicked')){
-        this.votes[i] += 1;
-      }
-    }
-    $.ajax({
-      url: '/surveys/:id',
-      type: 'PUT',
-      data: surveyInc
-    }).done()
-  };
+    // // var fistList = $('.fist-list li');
+    //
+    // for(var i = 0; i < fistList.length; i++){
+    //   if($('#finger' + i).data('clicked')){
+    //     this.votes[i] += 1;
+    //   }
+    // }
 
-
-
+  //   $.ajax({
+  //     url: '/surveys/addvote?id=' + id + '&fistType=fist' +  fistType,
+  //     type: 'GET',
+  //
+  //   }).done(function(res) {
+  //     console.log(res);
+  //   })
+  // };
 
 //body click events
   $('.show_users').on('click', getUsers);
@@ -145,7 +156,4 @@ $(function(){
   $('body').on('click', '#finger3', liftFingers);
   $('body').on('click', '#finger4', liftFingers);
   $('body').on('click', '#finger5', liftFingers);
-
-
-
 });
