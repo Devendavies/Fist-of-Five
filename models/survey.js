@@ -32,4 +32,38 @@ var SurveySchema = new mongoose.Schema({
 
 // Store Survey Schema and export to controller
 // var Survey = mongoose.model('Survey', SurveySchema);
-module.exports = mongoose.model('Survey', SurveySchema);
+let Survey = module.exports = mongoose.model('Survey', SurveySchema);
+
+
+module.exports.addVote = function(id, fistType, callback) {
+  Survey.findById(id, function(err, survey) {
+      if(err) throw err;
+
+      // res.send(survey)
+
+      switch(fistType) {
+        case 'fist0':
+          survey.votes[0].fist0 += 1;
+          break;
+        case 'fist 1':
+          survey.votes.fist1 += 1;
+          break;
+        case 'fist 2':
+          survey.votes.fist2 += 1;
+          break;
+        case 'fist 3':
+          survey.votes.fist3 += 1;
+          break;
+        case 'fist 4':
+          survey.votes.fist4 += 1;
+          break;
+        case 'fist 5':
+          survey.votes.fist5 += 1
+      }
+    survey.save(function(err) {
+      if(err) throw err;
+
+
+    });
+  });
+}

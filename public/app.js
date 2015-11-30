@@ -99,7 +99,13 @@ $(function(){
     alert('Survey Created! Lets Poll these Douches');
     var surveyData = {
       topic: $('#new_topic').val(),
-      description: $('#new_description').val()
+      description: $('#new_description').val(),
+      votes:       [{ fist0: 0 },
+                    { fist1:   0 },
+                    { fist2:   0 },
+                    { fist3: 0 },
+                    { fist4:  0 },
+                    { fist5:  0 }]
     }
     console.log(surveyData);
     $.ajax({
@@ -111,25 +117,30 @@ $(function(){
 
 //IN PROGRESS...function that adds to vote tally in surveys objects
 
-  let liftFingers = function(){
-    var fistList = $('.fist-list li');
+  let liftFingers = function(event){
+    event.preventDefault();
 
-    for(var i = 0; i < fistList.length; i++){
-      if($('#finger' + i).data('clicked')){
-        //need to grab votes data from survey schema and increment it
-        //we may need to change the votes names to include numbers so we can iterate instad of writing new function for each
-        //deven, since you set up the survey model i thoguht you may have an idea for this
-      }
-    }
+    let $surveysDiv = $(event.target).closest('.surveys');
+    let id = $surveysDiv.data('id');
+    let fistType = $(event.target).attr('value');
+
+    // var fistList = $('.fist-list li');
+    //
+    // for(var i = 0; i < fistList.length; i++){
+    //   if($('#finger' + i).data('clicked')){
+    //     //need to grab votes data from survey schema and increment it
+    //     //we may need to change the votes names to include numbers so we can iterate instad of writing new function for each
+    //     //deven, since you set up the survey model i thoguht you may have an idea for this
+    //   }
+    // }
     $.ajax({
-      url: '/surveys/:id',
-      type: 'PUT',
+      url: '/surveys/addvote?id=' + id + '&fistType=fist' +  fistType,
+      type: 'GET',
 
-    }).done()
+    }).done(function(res) {
+      console.log(res);
+    })
   };
-
-
-
 
 //body click events
   $('.show_users').on('click', getUsers);
@@ -147,7 +158,5 @@ $(function(){
   $('body').on('click', '#finger3', liftFingers);
   $('body').on('click', '#finger4', liftFingers);
   $('body').on('click', '#finger5', liftFingers);
-
-
 
 });
